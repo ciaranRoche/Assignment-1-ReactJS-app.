@@ -10,16 +10,17 @@ class HeaderComponent extends Component{
   render(){
     const {activeItem} = this.state
     return(<div>
+      <br/>
+        <Header as='h1'>
+          Rust
+        </Header>
         <Menu pointing secondary>
           <Menu.Item as={Link} to='/' name='Home' active={activeItem === 'Home'} onClick={this.handleItemClick}/>
           <Menu.Item as={Link} to='about' name='About' active={activeItem === 'About'} onClick={this.handleItemClick}/> 
           <Menu.Menu position='right'>
-            <Menu.Item as={Link} to='/' name='Profile' active={activeItem === 'Profile'} onClick={this.handleItemClick}/>
+            <Menu.Item as={Link} to='profile' name='Profile' active={activeItem === 'Profile'} onClick={this.handleItemClick}/>
           </Menu.Menu>
         </Menu>
-        <Header as='h1'>
-          Rust
-        </Header>
       </div>
     )
   }

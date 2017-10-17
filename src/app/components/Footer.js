@@ -2,6 +2,15 @@ import React, {Component} from 'react';
 import {Menu} from 'semantic-ui-react';
 import styles from '../assets/style.css';
 
+const style = {
+  position: 'fixed',
+  background: '#E6E6E6',
+  bottom: '0px',
+  height: '75px',
+  width: '100%',
+  left: '0px'
+}
+
 class Footer extends Component{
   state = { activeItem: '1' }
 
@@ -9,17 +18,9 @@ class Footer extends Component{
 
   render(){
     const {activeItem} = this.state
-    const style = {
-      position: 'fixed',
-      background: '#E6E6E6',
-      bottom: '0px',
-      height: '75px',
-      width: '100%',
-      left: '0px'
-    }
     return(<div style={style}>
         <div className='ui fixed vertical footer segment'>
-        Ima footer
+          Ima footer
       </div>
     </div>
     )
