@@ -10,9 +10,9 @@ class App extends Component{
     return(<div>
         <Container textAlign='center'>
           <HeaderComponent/>
-              {this.props.children}
+            {this.props.children}
+            <Footer/>
         </Container>
-        <Footer/>
       </div>
     )
   }

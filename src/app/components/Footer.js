@@ -1,26 +1,15 @@
 import React, {Component} from 'react';
-import {Menu} from 'semantic-ui-react';
+import {Divider} from 'semantic-ui-react';
 import styles from '../assets/style.css';
 
-const style = {
-  position: 'fixed',
-  background: '#E6E6E6',
-  bottom: '0px',
-  height: '75px',
-  width: '100%',
-  left: '0px'
-}
+
 
 class Footer extends Component{
-  state = { activeItem: '1' }
-
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-
   render(){
-    const {activeItem} = this.state
-    return(<div style={style}>
-        <div className='ui fixed vertical footer segment'>
-          Ima footer
+    return(<div >
+        <div className='ui vertical segment'>
+        <Divider/>
+          <h3>Ima A Footer</h3>
       </div>
     </div>
     )
