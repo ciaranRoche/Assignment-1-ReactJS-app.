@@ -1,16 +1,19 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {Router, Route, Link, IndexRoute, hashHistory} from 'react-router';
+import {BrowserRouter} from 'react-router-dom'
 import App from './components/App';
 import About from './components/About';
 import Profile from './components/Profile';
+import Home from './components/Home';
 import styles from './assets/style.css';
 
 ReactDOM.render(
   <Router history={hashHistory}>
         <Route path="/" component={App}>
-            <Route path="about" component={About} />
-            <Route path="profile" component={Profile}/>
+          <IndexRoute component={Home}/>
+          <Route path="about" component={About} />
+          <Route path="profile" component={Profile}/>
         </Route>
     </Router>,
 
