@@ -1,1 +1,14 @@
+html,body,#root {
+  /* we don't want any of these to scroll */
+  overflow: hidden;
+  height: 100%;
+}
 
+.footer {
+  position: fixed !important;
+  background: #E6E6E6 !important;
+  bottom: 0px;
+  height: 75px;
+  width: 100%;
+  left: 260px;
+}

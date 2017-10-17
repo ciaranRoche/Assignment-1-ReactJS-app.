@@ -1,18 +1,27 @@
 import React, {Component} from 'react';
+import {Menu} from 'semantic-ui-react';
+import styles from '../assets/style.css';
 
 class Footer extends Component{
+  state = { activeItem: '1' }
+
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+
   render(){
-    return(
-      <div className="footer-sticky">
-        <div className="ui vertical footer segment">
-        <div className="ui center aligned container">
-            <h4 className="ui header">&copy; Copyright 2017 | All rights reserved | Blahhh</h4>
-            <a href="https://www.facebook.com/"><i className="facebook square icon big"></i></a>
-            <a href="https://twitter.com/"><i className="twitter square icon big"></i></a>
-            <a href="https://www.linkedin.com/company/c"><i className="linkedin square icon big"></i></a>
-        </div>
-    </div>
+    const {activeItem} = this.state
+    const style = {
+      position: 'fixed',
+      background: '#E6E6E6',
+      bottom: '0px',
+      height: '75px',
+      width: '100%',
+      left: '0px'
+    }
+    return(<div style={style}>
+        <div className='ui fixed vertical footer segment'>
+        Ima footer
       </div>
+    </div>
     )
   }
 }
