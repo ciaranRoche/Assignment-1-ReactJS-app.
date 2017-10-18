@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Card, Icon, Image} from 'semantic-ui-react';
+import {Card, Icon, Image, Container} from 'semantic-ui-react';
 import Data from './TestData';
 
 
@@ -36,10 +36,10 @@ class CardList extends Component{
 class Home extends Component {
   render() {
     return (
-      <div>
+      <Container textAlign='center'>
         <h1>Daily Blogs</h1>
           <CardList data={Data}/>
-      </div>
+      </Container>
     )
   }
 }
