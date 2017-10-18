@@ -32,7 +32,7 @@ class CardList extends Component{
         <Link to={'blog/' + data.id}><Image src={data.imageUrl} style={imageStyle}/></Link>
         <Card.Content>
           <Card.Header>
-            {data.name}
+            <Link to={'blog/' + data.id}>{data.name}</Link>
           </Card.Header>
           <Card.Description>
             {data.snippet}
