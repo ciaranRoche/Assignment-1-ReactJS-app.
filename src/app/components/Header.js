@@ -3,8 +3,13 @@ import {Menu, Segment, Header} from 'semantic-ui-react';
 import {Link} from 'react-router'
 
 class HeaderComponent extends Component{
-  state = {activeItem: 'home'}
-  
+  constructor(props){
+    super(props);
+    this.state = {
+      activeItem: 'home',
+    }
+  }
+
   handleItemClick = (e, {name}) => this.setState({activeItem: name})
 
   render(){

@@ -36,7 +36,7 @@ class Blog extends Component{
         <h1>{this.state.title}</h1>
         <p>{this.state.snippet}</p>
       </Container>
-        <Image src={this.state.image} fluid style={{'height':'350px', margin:'40px 0'}}/>
+        <Image src={this.state.image} fluid style={{'height':'500px', margin:'40px 0'}}/>
       <Container textAlign='center'>
         <p>{this.state.content}</p>
       </Container>
