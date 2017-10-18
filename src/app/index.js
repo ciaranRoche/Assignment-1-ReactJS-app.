@@ -6,6 +6,7 @@ import App from './components/App';
 import About from './components/About';
 import Profile from './components/Profile';
 import Home from './components/Home';
+import Blog from './components/Blog';
 import styles from './assets/style.css';
 
 ReactDOM.render(
@@ -14,6 +15,7 @@ ReactDOM.render(
           <IndexRoute component={Home}/>
           <Route path="about" component={About} />
           <Route path="profile" component={Profile}/>
+          <Route path="blog/:id" component={Blog}/>
         </Route>
     </Router>,
 

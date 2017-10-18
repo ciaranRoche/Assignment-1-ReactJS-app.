@@ -1,16 +1,35 @@
 import React, {Component} from 'react';
 import {Card, Icon, Image, Container} from 'semantic-ui-react';
-import Data from './TestData';
-
+import {Link} from 'react-router';
 
 class CardList extends Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      blogs : []
+    }
+  }
+
+  componentDidMount(){
+    fetch('http://localhost:3000/blogs').then(res =>{
+      if(res.ok){
+        return res.json()
+      }
+    }).then(data => {
+      if(data!=null){
+        this.setState({blogs:data})
+      }
+    })
+  }
+
   buildCards(){
     let imageStyle = {
-      height:'200px'
+      height:'200px',
+      width:'100%'
     }
-    return this.props.data.map((data) => {
+    return this.state.blogs.map((data) => {
       return <Card key={data.id}>
-        <Image src={data.imageUrl} style={imageStyle}/>
+        <Link to={'blog/' + data.id}><Image src={data.imageUrl} style={imageStyle}/></Link>
         <Card.Content>
           <Card.Header>
             {data.name}
@@ -22,6 +41,7 @@ class CardList extends Component{
       </Card>
     })
   }
+
   render(){
     return(
       <div>
@@ -38,7 +58,7 @@ class Home extends Component {
     return (
       <Container textAlign='center'>
         <h1>Daily Blogs</h1>
-          <CardList data={Data}/>
+          <CardList/>
       </Container>
     )
   }
