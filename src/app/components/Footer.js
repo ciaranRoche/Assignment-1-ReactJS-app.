@@ -6,7 +6,7 @@ import styles from '../assets/style.css';
 
 class Footer extends Component{
   render(){
-    return(<div >
+    return(<div>
         <div className='ui vertical segment'>
         <Divider/>
           <h3>Ima A Footer</h3>
