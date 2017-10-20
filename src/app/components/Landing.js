@@ -1,0 +1,53 @@
+import React, {Component} from 'react';
+import {Container, Header, Image, Icon, Button} from 'semantic-ui-react';
+import SignIn from './SignIn';
+import SignUp from './SignUp';
+
+class Landing extends Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      signUpOption : false
+    }
+  }
+
+  handleSignUp = () => {
+    this.setState({signUpOption: true})
+    console.log('clicked sign up')
+
+  }
+
+  handleLogIn = () => {
+    this.setState({signUpOption: false})
+    console.log('clicked log in')
+  }
+
+  buildContent = () => {
+    let content;
+    this.state.signUpOption ? content = <SignUp/> : content = <SignIn/>
+    return content
+  }
+
+  render(){
+    return(
+      <Container textAlign='center'>
+        <Header as='h1' icon textAlign='center'>
+          <Icon name='pied piper alternate' size='massive' color='green' />
+          <Header.Content>
+            Welcome to Rust
+          </Header.Content>
+        </Header>
+        <Button.Group>
+          <Button onClick={this.handleSignUp}>Sign Up</Button>
+          <Button.Or />
+          <Button positive onClick={this.handleLogIn}>Log In</Button>
+        </Button.Group>
+        <br/><br/>
+        {this.buildContent()}
+
+      </Container>
+    )
+  }
+}
+
+export default Landing;

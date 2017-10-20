@@ -32,7 +32,6 @@ class SignIn extends Component {
   render() {
     return (
       <Container textAlign='center'>
-        <h1>Welcome back to RUST</h1>
         {this.buildForm()}
       </Container>
     )
