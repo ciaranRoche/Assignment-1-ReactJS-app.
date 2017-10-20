@@ -13,14 +13,15 @@ import styles from './assets/style.css';
 
 ReactDOM.render(
   <Router history={hashHistory}>
-        <Route path="/" component={App}>
-          <IndexRoute component={Home}/>
-          <Route path="about" component={About} />
-          <Route path="blog/:id" component={Blog}/>
-          <Route path="profile" component={Profile}/>
-          <Route path="signUp" component={SignUp}/>
-          <Route path="signIn" component={SignIn}/>
-        </Route>
+        <Route exact path="/" component={SignIn}/>
+          <Route path='rust/' component={App}>
+            <IndexRoute component={Home}/>
+            <Route path="/about" component={About} />
+            <Route path="/blog/:id" component={Blog}/>
+            <Route path="/profile" component={Profile}/>
+            <Route path="/signUp" component={SignUp}/>
+            <Route path="/signIn" component={SignIn}/>
+          </Route>
     </Router>,
 
   document.getElementById('root')

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Route, Redirect} from 'react-router';
 import {Container} from 'semantic-ui-react';
 
 class Profile extends Component {

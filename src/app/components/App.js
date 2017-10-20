@@ -5,6 +5,12 @@ import Footer from './Footer';
 
 
 class App extends Component{
+  constructor(props){
+    super(props);
+    this.state = {
+    }
+  }
+
   render(){
     return(<div>
         <Container textAlign='center'>
@@ -13,7 +19,7 @@ class App extends Component{
           {this.props.children}
         <Container textAlign='center'>
           <Footer/>
-        </Container>
+        </Container>;
       </div>
     )
   }
