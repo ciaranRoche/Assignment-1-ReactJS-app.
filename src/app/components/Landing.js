@@ -34,7 +34,7 @@ class Landing extends Component{
         <Header as='h1' icon textAlign='center'>
           <Icon name='pied piper alternate' size='massive' color='green' />
           <Header.Content>
-            Welcome to Rust
+            Welcome to Pied Piper
           </Header.Content>
         </Header>
         <Button.Group>
