@@ -19,6 +19,9 @@ class HeaderComponent extends Component{
           <Icon name='pied piper alternate' size='massive' color='green' />
           <Header.Content>
             Welcome to Pied Piper
+            <Header.Subheader>
+              The Internets No1 Content Website
+            </Header.Subheader>
           </Header.Content>
         </Header>
         <Menu pointing secondary>

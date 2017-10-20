@@ -36,6 +36,9 @@ class Landing extends Component{
           <Header.Content>
             Welcome to Pied Piper
           </Header.Content>
+            <Header.Subheader>
+              The Internets No1 Content Website
+            </Header.Subheader>
         </Header>
         <Button.Group>
           <Button onClick={this.handleSignUp}>Sign Up</Button>

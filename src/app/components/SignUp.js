@@ -5,6 +5,7 @@ import {Link} from 'react-router';
 const options = [
   { key: 'm', text: 'Male', value: 'male' },
   { key: 'f', text: 'Female', value: 'female' },
+  { key: 'o', text: 'Other', value: 'other'}
 ]
 
 class SignUp extends Component{
