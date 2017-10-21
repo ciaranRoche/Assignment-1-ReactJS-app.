@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {Router, Route, Link, IndexRoute, hashHistory} from 'react-router';
-import {BrowserRouter} from 'react-router-dom'
 import App from './components/App';
 import About from './components/About';
 import Profile from './components/Profile';
