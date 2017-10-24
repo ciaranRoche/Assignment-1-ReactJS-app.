@@ -3,7 +3,40 @@ import {Route, Redirect} from 'react-router';
 import {Container} from 'semantic-ui-react';
 
 class Profile extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      firstname : '',
+      surname: '',
+      gender: '',
+      email: '',
+      address: '',
+      about: '',
+      blogs: []
+    }
+  }
+
+  componentDidMount(){
+    fetch('http://localhost:3000/users/' + sessionStorage.getItem('loggedIn')).then(res =>{
+      if(res.ok){
+        return res.json()
+      }
+    }).then(data => {
+      if(data!=null){
+        this.setState({
+          firstname: data.firstname,
+          surname: data.surname,
+          gender: data.gender,
+          email: data.email,
+          address : data.address,
+          about: data.about
+        })
+      }
+    })  
+  }
+
   render() {
+    console.log(this.state.firstname)
     return (
       <Container textAlign='center'>
         <h1>Ima Dumb Profile Component</h1>

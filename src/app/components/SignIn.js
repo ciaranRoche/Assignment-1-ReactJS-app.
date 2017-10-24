@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router';
+import {Link, Redirect, Route} from 'react-router';
 import {Container,Button,Form} from 'semantic-ui-react';
-import HeaderComponent from './Header'
+import HeaderComponent from './Header';
+import App from './App';
+import Home from './Home';
 
 class SignIn extends Component {
   constructor(props){
@@ -10,17 +12,44 @@ class SignIn extends Component {
     this.state = {
       email : '',
       password : '',
+      users : [],
+      trigger : false
     }
   }
 
+  componentDidMount(){
+    fetch('http://localhost:3000/users').then(res => {
+      if(res.ok){
+        return res.json()
+      }
+    }).then(data => {
+      if(data != null){
+        this.setState({users:data})
+      }
+    })
+  }
+
   handleClick = (e) => {
+    console.log(this.state.users)
     console.log('submit clicked')
-    console.log(this.state.email, this.state.password)
+    let users = this.state.users;
+    let email = "sondrabeasley@earwax.com"
+    let password = "elit"
+    users.forEach((user) => {
+      if(user.email === email && user.password == password){
+        sessionStorage.setItem('loggedIn', user.id);
+        this.setState({trigger: true});
+      }
+    })
   }
 
   handleChange = (e) => {
     const name = e.target.name;
     this.setState({[name]: e.target.value});
+  }
+
+  authUser(){
+
   }
 
   buildForm(){
@@ -33,7 +62,7 @@ class SignIn extends Component {
         <label>Password</label>
         <input name='password' type='password' placeholder='password' onChange={this.handleChange}/>
       </Form.Field>
-      <Link to='rust/'><Button type='submit' onClick={this.handleClick.bind(this)}>SignIn</Button></Link>
+      <Button type='submit' onClick={this.handleClick.bind(this)}>SignIn</Button>
     </Form>
   }
 

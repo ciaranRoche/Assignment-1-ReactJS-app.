@@ -12,12 +12,12 @@ import styles from './assets/style.css';
 ReactDOM.render(
   <Router history={hashHistory}>
         <Route exact path="/" component={Landing}/>
-          <Route path='rust/' component={App}>
-            <IndexRoute component={Home}/>
-            <Route path="/about" component={About} />
-            <Route path="/blog/:id" component={Blog}/>
-            <Route path="/profile" component={Profile}/>
-          </Route>
+        <Route path='rust/' component={App}>
+          <IndexRoute component={Home}/>
+          <Route path="/about" component={About} />
+          <Route path="/blog/:id" component={Blog}/>
+          <Route path="/profile" component={Profile}/>
+        </Route>
     </Router>,
 
   document.getElementById('root')

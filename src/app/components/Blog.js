@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
-import {Container, Image} from 'semantic-ui-react';
+import {Container, Image, Grid, Segment} from 'semantic-ui-react';
 
 class Blog extends Component{
   constructor(props){
     super(props);
     this.state = {
       title : '',
-      content : '',
+      contentA : '',
+      contentB : '',
+      highlight : '',
       snippet : '',
       image : ''
     }
@@ -23,7 +25,9 @@ class Blog extends Component{
           title : data.name,
           snippet: data.snippet,
           image: data.imageUrl,
-          content: data.snippet
+          contentA: data.contentA,
+          highlight : data.highlight,
+          contentB: data.contentB
         })
       }
     })
@@ -38,7 +42,19 @@ class Blog extends Component{
       </Container>
         <Image src={this.state.image} fluid style={{'height':'500px', margin:'40px 0'}}/>
       <Container textAlign='center'>
-        <p>{this.state.content}</p>
+        <Grid>
+          <Grid.Column width={3}>
+          </Grid.Column>
+          <Grid.Column width={10}>
+            <p>{this.state.contentA}</p>
+              <Segment stacked>
+                <p><b>{this.state.highlight}</b></p>
+              </Segment>
+            <p>{this.state.contentB}</p>
+          </Grid.Column>
+          <Grid.Column width={3}>
+          </Grid.Column>
+        </Grid>
       </Container>
 
       </div>

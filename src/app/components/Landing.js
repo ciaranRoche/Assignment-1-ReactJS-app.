@@ -13,13 +13,10 @@ class Landing extends Component{
 
   handleSignUp = () => {
     this.setState({signUpOption: true})
-    console.log('clicked sign up')
-
   }
 
   handleLogIn = () => {
     this.setState({signUpOption: false})
-    console.log('clicked log in')
   }
 
   buildContent = () => {
