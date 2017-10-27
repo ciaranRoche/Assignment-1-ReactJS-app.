@@ -14,6 +14,7 @@ class HeaderComponent extends Component{
 
   render(){
     const {activeItem} = this.state
+    let profileLink = 'profile/' + sessionStorage.getItem('userId')
     return(<div>
         <Header as='h1' icon textAlign='center'>
           <Icon name='pied piper alternate' size='massive' color='green' />
@@ -28,7 +29,7 @@ class HeaderComponent extends Component{
           <Menu.Item as={Link} to='rust/' name='Home' active={activeItem === 'Home'} onClick={this.handleItemClick}/>
           <Menu.Item as={Link} to='about' name='About' active={activeItem === 'About'} onClick={this.handleItemClick}/> 
           <Menu.Menu position='right'>
-            <Menu.Item as={Link} to='profile' name='Profile' active={activeItem === 'Profile'} onClick={this.handleItemClick}/>
+            <Menu.Item as={Link} to={profileLink} name='Profile' active={activeItem === 'Profile'} onClick={this.handleItemClick}/>
           </Menu.Menu>
         </Menu>
       </div>

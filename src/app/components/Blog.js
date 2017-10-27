@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
-import {Container, Image, Grid, Segment} from 'semantic-ui-react';
+import {Link} from 'react-router';
+import {Container, Image, Grid, Segment, Rail, Sticky, Header, Icon} from 'semantic-ui-react';
+
 
 class Blog extends Component{
   constructor(props){
@@ -10,7 +12,10 @@ class Blog extends Component{
       contentB : '',
       highlight : '',
       snippet : '',
-      image : ''
+      image : '',
+      likes : 0,
+      authorId : '',
+      author : []
     }
   }
 
@@ -27,13 +32,35 @@ class Blog extends Component{
           image: data.imageUrl,
           contentA: data.contentA,
           highlight : data.highlight,
-          contentB: data.contentB
+          contentB: data.contentB,
+          likes : data.likes,
+          authorId : data.author
         })
       }
+    }).then(() => {
+      fetch('http://localhost:3000/users/' + this.state.authorId).then(res => {
+        if(res.ok){
+          return res.json()
+        }
+      }).then(data => {
+        if(data!=null){
+          this.setState({
+            author : data
+          })
+        }
+      })
     })
   }
 
+  handleContextRef = contextRef => this.setState({ contextRef })
+
+  handleLike = () => {
+    console.log('liked :)')
+  }
+
   render(){
+    const { contextRef } = this.state
+    let blogAuthor = '/profile/' + this.state.author.id
     return(
       <div>
       <Container textAlign='center'>
@@ -42,17 +69,25 @@ class Blog extends Component{
       </Container>
         <Image src={this.state.image} fluid style={{'height':'500px', margin:'40px 0'}}/>
       <Container textAlign='center'>
-        <Grid>
-          <Grid.Column width={3}>
-          </Grid.Column>
-          <Grid.Column width={10}>
-            <p>{this.state.contentA}</p>
-              <Segment stacked>
-                <p><b>{this.state.highlight}</b></p>
-              </Segment>
-            <p>{this.state.contentB}</p>
-          </Grid.Column>
-          <Grid.Column width={3}>
+        <Grid stackable centered columns={2}>
+          <Grid.Column>
+            <div ref={this.handleContextRef}>
+                <p>{this.state.contentA}</p>
+                <Segment stacked>
+                  <p><b>{this.state.highlight}</b></p>
+                </Segment>
+                  <p>{this.state.contentB}</p>
+                <Rail position='left' size='mini'>
+                  <Sticky context={contextRef}>
+                    <Segment vertical>
+                      <h3>{this.state.title}</h3>
+                      <Link to={blogAuthor}><p><b>Author</b> {this.state.author.firstname} {this.state.author.surname}</p></Link>
+                      <span onClick={this.handleLike}><Icon name='thumbs outline up' style={{cursor:'pointer'}} size='big'/>{this.state.likes}</span>
+                    </Segment>
+                  </Sticky>
+                </Rail>
+     
+            </div>
           </Grid.Column>
         </Grid>
       </Container>

@@ -19,7 +19,7 @@ class Profile extends Component {
   }
 
   componentDidMount(){
-    fetch('http://localhost:3000/users/' + sessionStorage.getItem('userId')).then(res =>{
+    fetch('http://localhost:3000/users/' + this.props.params.id).then(res =>{
       if(res.ok){
         return res.json()
       }
@@ -43,7 +43,6 @@ class Profile extends Component {
       })
       fetch(link).then(res => {
         if(res.ok){
-          console.log(res)
           return res.json()
         }
       }).then(data => {

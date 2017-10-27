@@ -45,7 +45,7 @@ class CardList extends Component{
   render(){
     return(
       <div>
-      <Card.Group itemsPerRow={3}>
+      <Card.Group stackable itemsPerRow={3}>
         {this.buildCards()} 
       </Card.Group>
       </div>

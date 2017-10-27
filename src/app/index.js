@@ -16,7 +16,7 @@ ReactDOM.render(
           <IndexRoute component={Home}/>
           <Route path="/about" component={About} />
           <Route path="/blog/:id" component={Blog}/>
-          <Route path="/profile" component={Profile}/>
+          <Route path="/profile/:id" component={Profile}/>
         </Route>
     </Router>,
 
