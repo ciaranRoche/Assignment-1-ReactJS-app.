@@ -12,33 +12,25 @@ class SignIn extends Component {
     this.state = {
       email : '',
       password : '',
-      users : [],
       trigger : false
     }
   }
 
-  componentDidMount(){
-    fetch('http://localhost:3000/users').then(res => {
+  handleClick = (e) => {
+    fetch('http://localhost:3000/users?email=' + this.state.email).then(res => {
       if(res.ok){
         return res.json()
       }
     }).then(data => {
       if(data != null){
-        this.setState({users:data})
-      }
-    })
-  }
-
-  handleClick = (e) => {
-    console.log(this.state.users)
-    console.log('submit clicked')
-    let users = this.state.users;
-    let email = "sondrabeasley@earwax.com"
-    let password = "elit"
-    users.forEach((user) => {
-      if(user.email === email && user.password == password){
-        sessionStorage.setItem('loggedIn', user.id);
-        this.setState({trigger: true});
+        if(data[0].email == this.state.email && data[0].password == this.state.password){
+          console.log('woohoo it works')
+          this.setState({trigger:true})
+          sessionStorage.setItem('userId', data[0].id)
+          console.log(sessionStorage.getItem('userId'))
+        }else{
+          console.log('we gots a mistake')
+        }
       }
     })
   }

@@ -17,7 +17,7 @@ class Profile extends Component {
   }
 
   componentDidMount(){
-    fetch('http://localhost:3000/users/' + sessionStorage.getItem('loggedIn')).then(res =>{
+    fetch('http://localhost:3000/users/' + sessionStorage.getItem('userId')).then(res =>{
       if(res.ok){
         return res.json()
       }
@@ -36,7 +36,7 @@ class Profile extends Component {
   }
 
   render() {
-    console.log(this.state.firstname)
+    console.log(this.state.firstname, this.state.surname, this.state.email, this.state.address, this.state.about)
     return (
       <Container textAlign='center'>
         <h1>Ima Dumb Profile Component</h1>
