@@ -47,7 +47,7 @@ class CardList extends Component{
       <div>
       <Card.Group itemsPerRow={3}>
         {this.buildCards()} 
-        </Card.Group>
+      </Card.Group>
       </div>
     )
   }
