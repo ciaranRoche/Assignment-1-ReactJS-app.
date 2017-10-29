@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {Card, Icon, Image, Container} from 'semantic-ui-react';
 import {Link} from 'react-router';
-import api from '../API/vinylAPI';
+import vinylApi from '../API/vinylAPI';
+import Loading from './Loading';
 
 class CardList extends Component{
   constructor(props){
@@ -12,7 +13,7 @@ class CardList extends Component{
   }
 
   componentDidMount(){
-    let p = api.getAll();
+    let p = vinylApi.getAll();
     p.then(response => {
       let vinyles = response;
       this.setState({vinyls : vinyles})
@@ -50,12 +51,24 @@ class CardList extends Component{
     })
   }
 
+  buildContent(){
+    let content;
+    if(this.state.vinyls == 0){
+      content = <div><Loading/></div>
+    }else{
+      content = <div>
+        <h1>Albums</h1>
+        <Card.Group stackable itemsPerRow={3}>
+          {this.buildCards()}
+        </Card.Group>
+      </div>
+    }
+    return content;
+  }
+
   render(){
-    return(
-      <div>
-      <Card.Group stackable itemsPerRow={3}>
-        {this.buildCards()}
-      </Card.Group>
+    return(<div>
+        {this.buildContent()}
       </div>
     )
   }
@@ -65,7 +78,6 @@ class Home extends Component {
   render() {
     return (
       <Container textAlign='center'>
-        <h1>Albums</h1>
           <CardList/>
       </Container>
     )

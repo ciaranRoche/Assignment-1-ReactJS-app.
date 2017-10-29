@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
 import {Container, Image, Grid, Segment, Rail, Sticky, Header, Icon} from 'semantic-ui-react';
-import api from '../API/vinylAPI';
+import vinylApi from '../API/vinylAPI';
+import Loading from './Loading';
 
 
 class Album extends Component{
@@ -21,7 +22,7 @@ class Album extends Component{
   }
 
   componentDidMount(){
-    let p = api.getAlbum(this.state.id)
+    let p = vinylApi.getAlbum(this.state.id)
     this.setState({
       id : p.id,
       artist : p.artist,
@@ -41,7 +42,6 @@ class Album extends Component{
     return(
       <div>
         <h1>{this.state.album}</h1>
-
       </div>
     )
   }

@@ -5,7 +5,6 @@ import App from './components/App';
 import About from './components/About';
 import Home from './components/Home';
 import Album from './components/Album';
-import Landing from './components/Landing';
 import styles from './assets/style.css';
 
 ReactDOM.render(

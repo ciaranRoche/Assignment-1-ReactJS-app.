@@ -58,7 +58,7 @@ class VinylAPI{
         'genre': 'Doom',
         'year': 2015,
         'notes' : 'The Night Creeper is the fourth studio album by English band Uncle Acid & the Deadbeats. The album released on 4 September 2015.',
-        'likes': 50,
+        'likes': 32,
         'reviews':{
           'user': 1,
           'review': 'Love this album',
@@ -72,7 +72,7 @@ class VinylAPI{
         'genre': 'Doom',
         'year': 2010,
         'notes' : 'First released on Friday February 13th, (40 years to the day after Black Sabbath’s debut LP), “Vol 1” was the first efforts of unknown songwriter, Kevin Starrs. Pressed in small numbers for a non existing fan base, the album took several months to shift all 30 CD-R copies and provided a small platform to fund its follow up, “Blood Lust” (2011).',
-        'likes': 50,
+        'likes': 76,
         'reviews':{
           'user': 1,
           'review': 'Love this album',
@@ -86,7 +86,7 @@ class VinylAPI{
         'genre': 'Rock',
         'year': 2017,
         'notes' : 'Villains is the seventh studio album by American rock band Queens of the Stone Age, released on August 25, 2017 through Matador.',
-        'likes': 50,
+        'likes': 25,
         'reviews':{
           'user': 1,
           'review': 'Love this album',
