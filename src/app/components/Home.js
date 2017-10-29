@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Card, Icon, Image, Container} from 'semantic-ui-react';
+import {Card, Icon, Image, Container, Button} from 'semantic-ui-react';
 import {Link} from 'react-router';
 import vinylApi from '../API/vinylAPI';
 import Loading from './Loading';
@@ -10,6 +10,7 @@ class CardList extends Component{
     this.state = {
       vinyls : []
     }
+    this.handleLike = this.handleLike.bind(this)
   }
 
   componentDidMount(){
@@ -20,8 +21,10 @@ class CardList extends Component{
     })
   }
 
-  handleLike(){
-    console.log('clicked')
+  handleLike(e){
+    e.preventDefault();
+    vinylApi.like(e.target.name)
+    this.setState({});
   }
 
   buildCards(){
@@ -42,10 +45,10 @@ class CardList extends Component{
           </Card.Description>
         </Card.Content>
         <Card.Content extra>
-      <a onClick={this.handleLike}>
-        <Icon name='thumbs outline up' />
+      <Button primary onClick={this.handleLike} name={data.id}>
+        <i className="thumbs outline up icon"></i>
         {data.likes} 
-      </a>
+      </Button>
     </Card.Content>
       </Card>
     })

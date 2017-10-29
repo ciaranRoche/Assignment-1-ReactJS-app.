@@ -113,6 +113,18 @@ class VinylAPI{
     }
     return result;
   }
+
+  like(key){
+    let index = _.findIndex(this.vinyl, function(vinyl){
+      return vinyl.id == key;
+    });
+    if (index !== -1){
+      this.vinyl[index].likes += 1;
+      console.log(this.vinyl[index].likes)
+      return true;
+    }
+    return false;
+  }
 }
 
 export default (new VinylAPI());
