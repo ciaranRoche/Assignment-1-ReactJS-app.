@@ -97,6 +97,17 @@ class VinylAPI{
     });
     return promise;
   }
+
+  getAlbum(key){
+    let result = null;
+    let index = _.findIndex(this.vinyl, function(vinyl){
+      return vinyl.id == key;
+    });
+    if (index !== -1){
+      result = this.vinyl[index];
+    }
+    return result;
+  }
 }
 
 export default (new VinylAPI());

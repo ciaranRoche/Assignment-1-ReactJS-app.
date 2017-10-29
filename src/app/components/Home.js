@@ -12,13 +12,16 @@ class CardList extends Component{
   }
 
   componentDidMount(){
-    console.log('fired')
     let p = api.getAll();
     p.then(response => {
       let vinyles = response;
       this.setState({vinyls : vinyles})
       console.log(this.state.vinyls)
     })
+  }
+
+  handleLike(){
+    console.log('clicked')
   }
 
   buildCards(){
@@ -28,10 +31,10 @@ class CardList extends Component{
     }
     return this.state.vinyls.map((data) => {
       return <Card key={data.id}>
-        <Link to={'blog/' + data.id}><Image src={data.image} style={imageStyle}/></Link>
+        <Link to={'album/' + data.id}><Image src={data.image} style={imageStyle}/></Link>
         <Card.Content>
           <Card.Header>
-            <Link to={'blog/' + data.id}>{data.album}</Link>
+            <Link to={'album/' + data.id}>{data.album}</Link>
           </Card.Header>
           <Card.Description>
             <p><b>Artist : </b>{data.artist}</p>
@@ -39,7 +42,7 @@ class CardList extends Component{
           </Card.Description>
         </Card.Content>
         <Card.Content extra>
-      <a>
+      <a onClick={this.handleLike}>
         <Icon name='thumbs outline up' />
         {data.likes} 
       </a>
