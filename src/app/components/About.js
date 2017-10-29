@@ -6,7 +6,7 @@ class About extends Component{
     return(
       <div>
         <Container textAlign='center'>
-          <h1>About Rust</h1>
+          <h1>About Pied Piper</h1>
           <p>Lorem ipsum dolor sit amet, ligula eget a dapibus mauris pede, elit nulla turpis amet, eu sit ut. Dictumst malesuada wisi enim integer,</p>
         </Container>
         <Image src='https://i.gyazo.com/f17d3d89e42f4c4a6a63b05b5b6b752f.png' fluid style={{height: '350px', margin:'40px 0'}}/>

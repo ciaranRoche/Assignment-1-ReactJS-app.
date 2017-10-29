@@ -26,7 +26,7 @@ class HeaderComponent extends Component{
           </Header.Content>
         </Header>
         <Menu pointing secondary>
-          <Menu.Item as={Link} to='rust/' name='Home' active={activeItem === 'Home'} onClick={this.handleItemClick}/>
+          <Menu.Item as={Link} to='app/' name='Home' active={activeItem === 'Home'} onClick={this.handleItemClick}/>
           <Menu.Item as={Link} to='about' name='About' active={activeItem === 'About'} onClick={this.handleItemClick}/> 
           <Menu.Menu position='right'>
             <Menu.Item as={Link} to={profileLink} name='Profile' active={activeItem === 'Profile'} onClick={this.handleItemClick}/>

@@ -56,6 +56,9 @@ class Blog extends Component{
 
   handleLike = () => {
     console.log('liked :)')
+    let newLikes = this.state.likes + 1;
+    this.setState({likes: newLikes})
+    
   }
 
   render(){

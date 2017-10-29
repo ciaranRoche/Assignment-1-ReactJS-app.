@@ -9,9 +9,24 @@ const options = [
 ]
 
 class SignUp extends Component{
-  state = {}
+  constructor(props){
+    super(props);
+    this.state = {
+      firstName : '',
+      surname : '',
+      gender : '',
+      email : '',
+      password : '',
+      about : '',
+      picture : '',
+    }
+  }
 
   handleChange = (e, { value }) => this.setState({ value })
+
+  handleSubmit = () => {
+    console.log('clicked')
+  }
 
   render(){
     const { value } = this.state
@@ -26,10 +41,11 @@ class SignUp extends Component{
           <Form.Group widths='equal'>
             <Form.Input label='Email' placeholder='Email Address' />
             <Form.Input type='password' label='Password' placeholder='Password' />
+            <Form.Input type='picture' label='Profile Image' placeholder='Profile Picture' />
           </Form.Group>
           <Form.TextArea label='About' placeholder='Tell us more about you...' />
           <Form.Checkbox label='I agree to the Terms and Conditions' />
-          <Link to='rust/'><Form.Button>Submit</Form.Button></Link>
+          <Link to='app/'><Form.Button onClick={this.handleSubmit}>Submit</Form.Button></Link>
         </Form>
       </Container>
     )

@@ -12,7 +12,7 @@ import styles from './assets/style.css';
 ReactDOM.render(
   <Router history={hashHistory}>
         <Route exact path="/" component={Landing}/>
-        <Route path='rust/' component={App}>
+        <Route path='app/' component={App}>
           <IndexRoute component={Home}/>
           <Route path="/about" component={About} />
           <Route path="/blog/:id" component={Blog}/>
