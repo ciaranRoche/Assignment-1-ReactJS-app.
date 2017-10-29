@@ -12,11 +12,16 @@ class VinylAPI{
         'year': 1992,
         'notes' : 'Sleeps Holy Mountain is the second studio album by the American band Sleep.It was released in November 1992 in Europe, and March 1993 in the USA through Earache Records.',
         'likes': 50,
-        'reviews':{
+        'reviews':[{
           'user': 1,
           'review': 'Love this album',
           'likes': 2
+        },{
+          'user': 2,
+          'review': 'My Favorite Album',
+          'likes': 5
         }
+      ]
       },{
         'id': 1,
         'artist': 'Black Sabbath',

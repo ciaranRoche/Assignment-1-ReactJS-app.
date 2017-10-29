@@ -33,6 +33,7 @@ class Album extends Component{
       likes : p.likes,
       reviews : p.reviews
     })
+
   }
 
 

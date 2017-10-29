@@ -16,7 +16,6 @@ class CardList extends Component{
     p.then(response => {
       let vinyles = response;
       this.setState({vinyls : vinyles})
-      console.log(this.state.vinyls)
     })
   }
 
