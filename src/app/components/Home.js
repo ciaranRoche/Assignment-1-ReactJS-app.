@@ -3,6 +3,7 @@ import {Card, Icon, Image, Container, Button} from 'semantic-ui-react';
 import {Link} from 'react-router';
 import vinylApi from '../API/vinylAPI';
 import Loading from './Loading';
+import _ from 'lodash';
 
 class CardList extends Component{
   constructor(props){
@@ -32,7 +33,10 @@ class CardList extends Component{
       height:'200px',
       width:'100%'
     }
-    return this.state.vinyls.map((data) => {
+    let albums = _.sortBy(this.state.vinyls, function(vinyl){
+      return -vinyl.likes
+    })
+    return albums.map((data) => {
       return <Card key={data.id}>
         <Link to={'album/' + data.id}><Image src={data.image} style={imageStyle}/></Link>
         <Card.Content>
