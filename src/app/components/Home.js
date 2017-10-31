@@ -49,11 +49,11 @@ class CardList extends Component{
           </Card.Description>
         </Card.Content>
         <Card.Content extra>
-      <Button primary onClick={this.handleLike} name={data.id}>
-        <i className="thumbs outline up icon"></i>
-        {data.likes} 
-      </Button>
-    </Card.Content>
+        <Button primary onClick={this.handleLike} name={data.id}>
+          <i className="thumbs outline up icon"></i>
+          {data.likes} 
+        </Button>
+        </Card.Content>
       </Card>
     })
   }

@@ -114,13 +114,23 @@ class VinylAPI{
     return result;
   }
 
+  AddAlbum(a,al,i,g,y,n,l,r){
+    console.log('add album',a,al,i,g,y,n,l,r);
+    let promise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+          this.vinyl.push({id:7,artist:a, album:al, image:i, genre:g, year:y, notes:n, likes:l, reviews:r})
+          resolve(true)
+      }, 1000)
+    })
+    return promise;
+  }
+
   like(key){
     let index = _.findIndex(this.vinyl, function(vinyl){
       return vinyl.id == key;
     });
     if (index !== -1){
       this.vinyl[index].likes += 1;
-      console.log(this.vinyl[index].likes)
       return true;
     }
     return false;

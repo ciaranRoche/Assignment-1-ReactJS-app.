@@ -5,6 +5,7 @@ import App from './components/App';
 import About from './components/About';
 import Home from './components/Home';
 import Album from './components/Album';
+import AddAlbum from './components/AddAlbum';
 import styles from './assets/style.css';
 
 ReactDOM.render(
@@ -12,6 +13,7 @@ ReactDOM.render(
         <Route path='/' component={App}>
           <IndexRoute component={Home}/>
           <Route path="/about" component={About} />
+          <Route path="/add" component={AddAlbum}/>
           <Route path="/album/:id" component={Album}/>
         </Route>
     </Router>,

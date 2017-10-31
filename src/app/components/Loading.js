@@ -9,7 +9,7 @@ class Loading extends React.Component{
       <Loader>Loading...</Loader>
     </Dimmer>
 
-    <Image fluid src='https://s3-eu-west-1.amazonaws.com/piedpipervinyl/vinyl.jpg' />
+    <Image fluid src='https://s3-eu-west-1.amazonaws.com/piedpipervinyl/cover.jpg' />
   </Segment>
     )
   }
