@@ -8,7 +8,7 @@
       "genre": "Doom",
       "year": 1992,
       "notes": "Sleeps Holy Mountain is the second studio album by the American band Sleep.It was released in November1992 in Europe, and March1993 in the USA through Earache Records.",
-      "likes": 5,
+      "likes": 10,
       "reviews": [
         {
           "user": 1,
@@ -33,7 +33,7 @@
       "genre": "Rock",
       "year": 1971,
       "notes": "Catalog entry #3, released on July21, 1971. Master of Reality reached #8 on the U.S. album chart, immediately going gold. It was Black Sabbaths1st album to debut in the Top 10. Also their first album to feature the heavier new sound created by dropping the tuning three semi-tones below the standard E, thus creating the premise for what would become known as the stoner rock sound.",
-      "likes": 44,
+      "likes": 48,
       "reviews": {
         "user": 1,
         "review": "Love this album",
@@ -99,6 +99,17 @@
         "review": "Love this album",
         "likes": 2
       }
+    },
+    {
+      "artist": "Primus",
+      "album": "The Desaturating Seven",
+      "image": "https://s3-eu-west-1.amazonaws.com/piedpipervinyl/primus.jpg",
+      "genre": "Rock",
+      "year": 2017,
+      "notes": "The album is a concept album, loosely based on the children's book The Rainbow Goblins, written by Italian author of childrens books, Ul de Rico. Les Claypool used to read the book to his children when they were younger, and was fascinated and inspired by the vibrant artwork and use of colours of the book. Claypool always felt the book's story would make a fascinating musical project, and eventually approached his fellow band members about recording original music based on the story of the book.",
+      "likes": 3,
+      "reviews": [],
+      "id": 6
     }
   ],
   "users": [
