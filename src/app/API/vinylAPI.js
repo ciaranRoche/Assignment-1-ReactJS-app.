@@ -37,6 +37,24 @@ class VinylAPI{
     return result;
   }
 
+  deleteAlbum(key){
+    var options = {
+      method: 'DELETE',
+      url: url + '/' + key,
+      headers: {
+        'cache-control': 'no-cache',
+        'content-type': 'application/json'
+      }
+    };
+
+    request(options, function (error, response, body) {
+      if (error) 
+        throw new Error(error);
+      
+      console.log(body);
+    });
+  }
+
   AddAlbum(a,al,i,g,y,n,l,r){
     console.log('add album',a,al,i,g,y,n,l,r);
     var options = { method: 'POST',
