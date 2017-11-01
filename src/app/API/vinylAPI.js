@@ -118,7 +118,8 @@ class VinylAPI{
     console.log('add album',a,al,i,g,y,n,l,r);
     let promise = new Promise((resolve, reject) => {
       setTimeout(() => {
-          this.vinyl.push({id:7,artist:a, album:al, image:i, genre:g, year:y, notes:n, likes:l, reviews:r})
+          this.vinyl.push({id:this.vinyl.length ,artist:a, album:al, image:i, genre:g, year:y, notes:n, likes:l, reviews:r})
+          console.log(this.vinyl)
           resolve(true)
       }, 1000)
     })

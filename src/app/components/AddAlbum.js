@@ -22,7 +22,6 @@ class AddAlbum extends Component{
   handleChange(event){
     const name = event.target.name;
     this.setState({[name] : event.target.value});
-    console.log(this.state[name]);
   }
 
   handleSubmit(e){
@@ -36,11 +35,9 @@ class AddAlbum extends Component{
     let l = this.state.likes;
     let r = this.state.review;
     if(!a || !al || !i || !g || !y || !n){
-      console.log('error')
       return;
     }
     vinylAPI.AddAlbum(a,al,i,g,y,n,l,r);
-    console.log('submit')
   }
 
   render(){
