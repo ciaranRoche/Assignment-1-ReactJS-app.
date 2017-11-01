@@ -19,7 +19,12 @@ var config = {
         query: {
           presets: ["react", "es2015", "stage-2"]
         }
-      },{
+      },
+      {
+        test: /\.json$/, 
+        loader: 'json-loader'
+      },
+      {
         test: /\.css?/,
         loader: combineLoaders([
           {
@@ -34,6 +39,12 @@ var config = {
         ])
       }
     ]
+  },
+  node: {
+    console: true,
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty'
   }
 };
 

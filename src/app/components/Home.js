@@ -18,6 +18,7 @@ class CardList extends Component{
     let p = vinylApi.getAll();
     p.then(response => {
       let vinyles = response;
+      console.log(response)
       this.setState({vinyls : vinyles})
     })
   }
