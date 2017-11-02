@@ -9,7 +9,7 @@ class Album extends Component{
   constructor(props){
     super(props);
     this.state = {
-      id : props.params.id,
+      id : '',
       artist : '',
       album : '',
       image : '',
@@ -22,26 +22,53 @@ class Album extends Component{
   }
 
   componentDidMount(){
-    let p = vinylApi.getAlbum(this.state.id)
-    this.setState({
-      id : p.id,
-      artist : p.artist,
-      album : p.album,
-      image : p.image,
-      genre : p.genre,
-      year : p.year,
-      notes : p.notes,
-      likes : p.likes,
-      reviews : p.reviews
-    })
-
+    let link = 'http://localhost:3000/vinyl/' + this.props.params.id
+    fetch(link).then(res => {
+      if (res.ok)
+        return res.json()
+    }).then(data => {
+      if (data!=null){
+        this.setState({
+          id : data.id,
+          artist : data.artist,
+          album : data.album,
+          image : data.image,
+          genre : data.genre,
+          year : data.year,
+          notes : data.notes,
+          likes : data.likes,
+          reviews : data.reviews
+        });
+      };
+    });
   }
 
 
   render(){
     return(
       <div>
-        <h1>{this.state.album}</h1>
+        <Container>
+          <Grid stackable>
+            <Grid.Row>
+              <Grid.Column width={10}>
+                <Image fluid src={this.state.image}/>
+              </Grid.Column>
+              <Grid.Column width={6}>
+                <Header as='h1'>
+                  {this.state.artist}
+                  <Header.Subheader>
+                    {this.state.album}
+                  </Header.Subheader>
+                </Header>
+                  <p><b>Genre : </b>{this.state.genre}</p>
+                  <p><b>Released : </b>{this.state.year}</p>
+                  <p><b>About : </b>{this.state.notes}</p>
+                  <p><b>Likes : </b>{this.state.likes}</p>
+              </Grid.Column>
+            </Grid.Row>
+            
+          </Grid>
+        </Container>
       </div>
     )
   }

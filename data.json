@@ -8,7 +8,7 @@
       "genre": "Doom",
       "year": 1992,
       "notes": "Sleeps Holy Mountain is the second studio album by the American band Sleep.It was released in November1992 in Europe, and March1993 in the USA through Earache Records.",
-      "likes": 10,
+      "likes": 11,
       "reviews": [
         {
           "user": 1,
@@ -48,7 +48,7 @@
       "genre": "Trash Metal",
       "year": 1984,
       "notes": "Ride the Lightning is the second studio album by American heavy metal band Metallica, released on July27,1984, by the independent record label Megaforce Records",
-      "likes": 16,
+      "likes": 17,
       "reviews": {
         "user": 1,
         "review": "Love this album",
@@ -63,7 +63,7 @@
       "genre": "Doom",
       "year": 2015,
       "notes": "The Night Creeper is the fourth studio album by English band Uncle Acid & the Deadbeats. The album released on4 September 2015.",
-      "likes": 59,
+      "likes": 60,
       "reviews": {
         "user": 1,
         "review": "Love this album",
@@ -78,7 +78,7 @@
       "genre": "Doom",
       "year": 2010,
       "notes": "First released on Friday February13th, (40 years to the day after Black Sabbath’s debut LP), “Vol1” was the first efforts of unknown songwriter, Kevin Starrs. Pressed in small numbers for a non existing fan base, the album took several months to shift all30 CD-R copies and provided a small platform to fund its follow up, “Blood Lust” (2011).",
-      "likes": 78,
+      "likes": 79,
       "reviews": {
         "user": 1,
         "review": "Love this album",
@@ -93,7 +93,7 @@
       "genre": "Rock",
       "year": 2017,
       "notes": "Villains is the seventh studio album by American rock band Queens of the Stone Age, released on August25, 2017 through Matador.",
-      "likes": 25,
+      "likes": 26,
       "reviews": {
         "user": 1,
         "review": "Love this album",
@@ -107,7 +107,7 @@
       "genre": "Rock",
       "year": 2017,
       "notes": "The album is a concept album, loosely based on the children's book The Rainbow Goblins, written by Italian author of childrens books, Ul de Rico. Les Claypool used to read the book to his children when they were younger, and was fascinated and inspired by the vibrant artwork and use of colours of the book. Claypool always felt the book's story would make a fascinating musical project, and eventually approached his fellow band members about recording original music based on the story of the book.",
-      "likes": 5,
+      "likes": 7,
       "reviews": [],
       "id": 6
     }

@@ -19,22 +19,11 @@ class VinylAPI{
       .then(function(response){
         response = JSON.parse(response)
         _.vinyl = response
-      })    
+      })  
     var promise = new Promise ((resolve, reject) => {
       setTimeout(() => resolve(this.vinyl), 1000)
     });
     return promise;
-  }
-
-  getAlbum(key){
-    let result = null;
-    let index = _.findIndex(this.vinyl, function(vinyl){
-      return vinyl.id == key;
-    });
-    if (index !== -1){
-      result = this.vinyl[index];
-    }
-    return result;
   }
 
   deleteAlbum(key){
