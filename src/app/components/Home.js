@@ -21,9 +21,10 @@ class CardList extends Component{
       this.setState({vinyls : vinyles})
     })
   }
-  
+
   render(){
     return(<div>
+        <h1>Albums</h1>
         <VinylCards vinyls={this.state.vinyls}/>
       </div>
     )

@@ -42,7 +42,7 @@ class Album extends Component{
         });
       };
     }).then(() => {
-      console.log(this.state.reviews);
+
     });
   }
 

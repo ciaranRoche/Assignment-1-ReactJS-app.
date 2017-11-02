@@ -8,7 +8,7 @@
       "genre": "Doom",
       "year": 1992,
       "notes": "Sleeps Holy Mountain is the second studio album by the American band Sleep.It was released in November1992 in Europe, and March1993 in the USA through Earache Records.",
-      "likes": 13,
+      "likes": 16,
       "reviews": [
         {
           "user": 1,
@@ -53,7 +53,7 @@
       "genre": "Trash Metal",
       "year": 1984,
       "notes": "Ride the Lightning is the second studio album by American heavy metal band Metallica, released on July27,1984, by the independent record label Megaforce Records",
-      "likes": 17,
+      "likes": 28,
       "reviews": []
     },
     {
@@ -64,7 +64,7 @@
       "genre": "Doom",
       "year": 2015,
       "notes": "The Night Creeper is the fourth studio album by English band Uncle Acid & the Deadbeats. The album released on4 September 2015.",
-      "likes": 63,
+      "likes": 104,
       "reviews": []
     },
     {
@@ -75,7 +75,7 @@
       "genre": "Doom",
       "year": 2010,
       "notes": "First released on Friday February13th, (40 years to the day after Black Sabbath’s debut LP), “Vol1” was the first efforts of unknown songwriter, Kevin Starrs. Pressed in small numbers for a non existing fan base, the album took several months to shift all30 CD-R copies and provided a small platform to fund its follow up, “Blood Lust” (2011).",
-      "likes": 84,
+      "likes": 87,
       "reviews": []
     },
     {
@@ -107,7 +107,7 @@
       "genre": "Punk",
       "year": "1984",
       "notes": "Live '84 is an album released by Black Flag in 1984 on SST Records. It is a live recording of a show played in 1984 and features mostly tracks from My War and Slip It In. The album was recorded at the Stone nightclub in San Francisco, CA.",
-      "likes": 6,
+      "likes": 7,
       "reviews": [],
       "id": 7
     },
@@ -118,7 +118,7 @@
       "genre": "Punk",
       "year": "1977",
       "notes": "Rocket to Russia is the third studio album by the American punk rock band the Ramones, and was released on November 4, 1977, through Sire Records. Its origins date back to the summer of 1977, when \"Sheena Is a Punk Rocker\" was released as a single.",
-      "likes": 10,
+      "likes": 12,
       "reviews": [],
       "id": 8
     },
@@ -129,7 +129,7 @@
       "genre": "Rock",
       "year": "1972",
       "notes": "Vol. 4 is the fourth studio album by English rock band Black Sabbath, released in September 1972. It was the first album by Black Sabbath not produced by Rodger Bain; guitarist Tony Iommi assumed production duties.",
-      "likes": 2,
+      "likes": 4,
       "reviews": [],
       "id": 9
     },
@@ -140,7 +140,7 @@
       "genre": "Rock",
       "year": "2014",
       "notes": "Empress Rising is the band’s first full-length release and consists of “only” 5 songs, though the album clocks in an impressive length of over 45 minutes. First track is the title track, which is also the longest track on the album, being just over 12 minutes in length. And the album couldn’t start better. After a gentle opener this track just builds up on the fuzz and heavy low-end riffing and slowly introduces more and more elements to the music. Thomas Jäger’s vocals are very good and perhaps initially a bit surprising on first listen. So many doom bands I’ve listened to lately employ the more heavier grunting or more shouting vocal style, while Jäger’s vocals are very spacey, nicely produced by the use of some echoey effects. It’s giving the music a very hypnotic effect.",
-      "likes": 5,
+      "likes": 6,
       "reviews": [],
       "id": 10
     },

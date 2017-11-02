@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Container, Form, Button} from 'semantic-ui-react';
 import {Link} from 'react-router';
+import usersAPI from '../API/userAPI';
 
 const options = [
   { key: 'm', text: 'Male', value: 'male' },
@@ -17,15 +18,41 @@ class SignUp extends Component{
       gender : '',
       email : '',
       password : '',
+      address: '',
       about : '',
       picture : '',
     }
+    this.handleChange = this.handleChange.bind(this);
+    this.handleChangeGender = this.handleChangeGender.bind(this);
   }
 
-  handleChange = (e, { value }) => this.setState({ value })
+  handleChange(event){
+    const name = event.target.name;
+    this.setState({[name] : event.target.value});
+    console.log(this.state[name]);
+  }
 
-  handleSubmit = () => {
-    console.log('clicked')
+  // handles change from gender drop down
+  handleChangeGender(event, {value}){
+    this.setState({gender:value});
+  }
+
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    let f = this.state.firstName.trim();
+    let s = this.state.surname.trim();
+    let g = this.state.gender.trim();
+    let em = this.state.email.trim();
+    let p = this.state.password.trim();
+    let ad = this.state.address.trim();
+    let ab = this.state.about.trim();
+    let c = [];
+    let i = this.state.picture.trim();
+    // if(!f || !s || !g || !em || !p || !ad || !ab || !i){
+    //   return
+    // }
+    usersAPI.addUser(f,s,g,em,p,ab,ad,c,i);
   }
 
   render(){
@@ -34,17 +61,19 @@ class SignUp extends Component{
       <Container textAlign='center'>
         <Form>
           <Form.Group widths='equal'>
-            <Form.Input label='First name' placeholder='First name' />
-            <Form.Input label='Last name' placeholder='Last name' />
-            <Form.Select label='Gender' options={options} placeholder='Gender' />
+            <Form.Input label='First name' name='firstName' placeholder='First name' onChange={this.handleChange} />
+            <Form.Input label='Last name' name='surname' placeholder='Last name' onChange={this.handleChange} />
+            <Form.Select label='Gender' name='gender' options={options} value='gender' placeholder='Gender' onChange={this.handleChangeGender} />
           </Form.Group>
           <Form.Group widths='equal'>
-            <Form.Input label='Email' placeholder='Email Address' />
-            <Form.Input type='password' label='Password' placeholder='Password' />
-            <Form.Input type='picture' label='Profile Image' placeholder='Profile Picture' />
+            <Form.Input label='Email' name='email' placeholder='Email Address' onChange={this.handleChange} />
+            <Form.Input type='password' name='password' label='Password' placeholder='Password' onChange={this.handleChange} />
           </Form.Group>
-          <Form.TextArea label='About' placeholder='Tell us more about you...' />
-          <Form.Checkbox label='I agree to the Terms and Conditions' />
+          <Form.Group widths='equal'>
+            <Form.Input type='address' name='address' label='Address' placeholder='Address' onChange={this.handleChange} />
+            <Form.Input type='picture' name='picture' label='Profile Image' placeholder='Profile Picture' onChange={this.handleChange} />
+          </Form.Group>
+          <Form.TextArea label='About' name='about' placeholder='Tell us more about you...' onChange={this.handleChange}/>
           <Link to='app/'><Form.Button onClick={this.handleSubmit}>Submit</Form.Button></Link>
         </Form>
       </Container>

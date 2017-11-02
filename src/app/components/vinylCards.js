@@ -14,7 +14,7 @@ class VinylCards extends Component{
   handleLike(e){
     e.preventDefault();
     vinylApi.like(e.target.name)
-    this.setState({});
+    this.setState({test:false});
   }
 
   buildCards(){
@@ -53,7 +53,6 @@ class VinylCards extends Component{
       content = <div><Loading/></div>
     }else{
       content = <div>
-        <h1>Albums</h1>
         <Card.Group stackable itemsPerRow={3}>
           {this.buildCards()}
         </Card.Group>

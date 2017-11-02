@@ -67,7 +67,7 @@ class VinylAPI{
     });
   }
 
-  like(key){
+  like(key){  
     let index = _.findIndex(this.vinyl, function(vinyl){
       return vinyl.id == key;
     });

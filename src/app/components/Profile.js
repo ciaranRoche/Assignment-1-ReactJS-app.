@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Route, Redirect, Link} from 'react-router';
 import {Container, Grid, Image, Card} from 'semantic-ui-react';
+import VinylCards from './vinylCards';
+import vinylApi from '../API/vinylAPI';
 
 class Profile extends Component {
   constructor(props) {
@@ -82,6 +84,8 @@ class Profile extends Component {
         </Grid>
         <div className='ui divider'></div>
         <div>
+          <h2>My Collection</h2>
+          <VinylCards vinyls={this.state.vinyls}/>
         </div>
       </Container>
 
