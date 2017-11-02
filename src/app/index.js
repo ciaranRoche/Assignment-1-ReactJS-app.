@@ -6,6 +6,7 @@ import About from './components/About';
 import Home from './components/Home';
 import Album from './components/Album';
 import AddAlbum from './components/AddAlbum';
+import Profile from './components/Profile';
 import styles from './assets/style.css';
 
 ReactDOM.render(
@@ -15,6 +16,7 @@ ReactDOM.render(
           <Route path="/about" component={About} />
           <Route path="/add" component={AddAlbum}/>
           <Route path="/album/:id" component={Album}/>
+          <Route path="/profile" component={Profile}/>
         </Route>
     </Router>,
 
