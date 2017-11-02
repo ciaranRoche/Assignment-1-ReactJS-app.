@@ -35,7 +35,8 @@
       "year": 1971,
       "notes": "Catalog entry #3, released on July21, 1971. Master of Reality reached #8 on the U.S. album chart, immediately going gold. It was Black Sabbaths1st album to debut in the Top 10. Also their first album to feature the heavier new sound created by dropping the tuning three semi-tones below the standard E, thus creating the premise for what would become known as the stoner rock sound.",
       "likes": 48,
-      "reviews": [{
+      "reviews": [
+        {
           "user": 1,
           "name": "Gardner",
           "date": "21/9/17",
@@ -63,7 +64,7 @@
       "genre": "Doom",
       "year": 2015,
       "notes": "The Night Creeper is the fourth studio album by English band Uncle Acid & the Deadbeats. The album released on4 September 2015.",
-      "likes": 61,
+      "likes": 62,
       "reviews": []
     },
     {
@@ -280,7 +281,7 @@
         7,
         8
       ],
-      "profile-image": "https://randomuser.me/api/portraits/women/21.jpg"
+      "profile_image": "https://randomuser.me/api/portraits/women/21.jpg"
     },
     {
       "id": 8,
@@ -297,7 +298,7 @@
         3,
         7
       ],
-      "profile-image": "https://randomuser.me/api/portraits/women/37.jpg"
+      "profile_image": "https://randomuser.me/api/portraits/women/37.jpg"
     },
     {
       "id": 9,
@@ -315,7 +316,7 @@
         5,
         9
       ],
-      "profile-image": "https://randomuser.me/api/portraits/men/60.jpg"
+      "profile_image": "https://randomuser.me/api/portraits/men/60.jpg"
     }
   ]
 }
