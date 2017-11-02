@@ -7,11 +7,13 @@ import Home from './components/Home';
 import Album from './components/Album';
 import AddAlbum from './components/AddAlbum';
 import Profile from './components/Profile';
+import Landing from './components/Landing';
 import styles from './assets/style.css';
 
 ReactDOM.render(
   <Router history={hashHistory}>
-        <Route path='/' component={App}>
+        <Route path='/' component={Landing}/>
+        <Route path='app' component={App}>
           <IndexRoute component={Home}/>
           <Route path="/about" component={About} />
           <Route path="/add" component={AddAlbum}/>

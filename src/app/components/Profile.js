@@ -1,10 +1,20 @@
 import React, {Component} from 'react';
+import {Container, Button} from 'semantic-ui-react';
 
 class Profile extends Component{
+  constructor(props){
+    super(props);
+    this.state = {
+
+    }
+  }
+
+
   render(){
-    return(<div>
-      <h1>Whaaat I am a profile</h1>
-      </div>
+    return(
+      <Container textAlign='center'>
+        <h1>Ima Profile</h1>
+      </Container>
     )
   }
 }
