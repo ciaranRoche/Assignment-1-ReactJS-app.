@@ -15,6 +15,7 @@ class CardList extends Component{
   }
 
   componentDidMount(){
+    console.log(sessionStorage.getItem('userId'))
     let p = vinylApi.getAll();
     p.then(response => {
       let vinyles = response;

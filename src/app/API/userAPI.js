@@ -8,7 +8,6 @@ class UserAPI{
   }
 
   addUser(f,s,g,e,p,ad,ab,c,i){
-    console.log('user add', f, s, g, e, p ,ad, ab ,c ,i)
     var options = {
       method: 'POST',
       url : url,
@@ -32,6 +31,7 @@ class UserAPI{
 
     request(options, function(error, response, body){
       if(error) throw new Error(error);
+      sessionStorage.setItem('userId', body.id)
     });
   }
 

@@ -64,8 +64,16 @@
       "genre": "Doom",
       "year": 2015,
       "notes": "The Night Creeper is the fourth studio album by English band Uncle Acid & the Deadbeats. The album released on4 September 2015.",
-      "likes": 104,
-      "reviews": []
+      "likes": 54,
+      "reviews": [
+        {
+          "user": 2,
+          "name": "Sondra",
+          "date": "18/8/17",
+          "image": "https://randomuser.me/api/portraits/women/13.jpg",
+          "summary": "My Favorite Album"
+        }
+      ]
     },
     {
       "id": 4,

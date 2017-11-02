@@ -92,6 +92,23 @@ class VinylAPI{
     }
     return false;
   }
+
+  addReview(body, id){
+    var options = { method: 'PATCH',
+      url: 'http://localhost:3000/vinyl/' + id,
+      headers: 
+      { 
+        'cache-control': 'no-cache',
+        'content-type': 'application/json' },
+      body: 
+      { reviews: body },
+      json: true };
+
+    request(options, function (error, response, body) {
+      if (error) throw new Error(error);
+    });
+
+  }
 }
 
 export default (new VinylAPI());

@@ -49,9 +49,9 @@ class SignUp extends Component{
     let ab = this.state.about.trim();
     let c = [];
     let i = this.state.picture.trim();
-    // if(!f || !s || !g || !em || !p || !ad || !ab || !i){
-    //   return
-    // }
+    if(!f || !s || !g || !em || !p || !ad || !ab || !i){
+      return
+    }
     usersAPI.addUser(f,s,g,em,p,ab,ad,c,i);
   }
 
@@ -74,7 +74,7 @@ class SignUp extends Component{
             <Form.Input type='picture' name='picture' label='Profile Image' placeholder='Profile Picture' onChange={this.handleChange} />
           </Form.Group>
           <Form.TextArea label='About' name='about' placeholder='Tell us more about you...' onChange={this.handleChange}/>
-          <Link to='app/'><Form.Button onClick={this.handleSubmit}>Submit</Form.Button></Link>
+          <Link to='app/'><Form.Button onClick={this.handleSubmit.bind(this)}>Submit</Form.Button></Link>
         </Form>
       </Container>
     )

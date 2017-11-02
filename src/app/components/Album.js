@@ -18,8 +18,12 @@ class Album extends Component{
       year : '',
       notes : '',
       likes : 0,
-      reviews : []
+      reviews : [],
+      user : [],
+      userReview : ''
     }
+    this.handleReview = this.handleReview.bind(this);
+    this.handleSubmitReview = this.handleSubmitReview.bind(this);
   }
 
   componentDidMount(){
@@ -42,17 +46,57 @@ class Album extends Component{
         });
       };
     }).then(() => {
+      if(sessionStorage.getItem('userId') != null){
+      fetch('http://localhost:3000/users/' + sessionStorage.getItem('userId')).then(res => {
+        if(res.ok)
+          return res.json()
+      }).then(data => {
+        if(data!=null){
+          console.log(data)
+          this.setState({
+            user: data
+          })
+        }
+      })
+    }
+  });
+}
 
-    });
+  handleReview(e){
+    this.setState({userReview: e.target.value})
+  }
+
+  handleSubmitReview(e){
+    e.preventDefault();
+    let d = new Date();
+    let date = d.getDate() + '/' + d.getMonth() + '/' + d.getFullYear();
+    let newReview = {
+      "user": this.state.user.id, 
+      "name" : this.state.user.firstname, 
+      "date" : date, 
+      "image" : this.state.user.profile_image,
+      "summary" : this.state.userReview
+    }
+    this.state.reviews.push(newReview)
+    vinylApi.addReview(this.state.reviews, this.state.id)
+    this.setState({
+      userReview: ''
+    })
   }
 
   leaveReview(){
-    return<div>
-      <Form>
-        <Form.Field control={TextArea} label='Leave A Review' placeholder='Tell us if you like the album...' />
-        <Form.Field control={Button}>Submit</Form.Field>
-      </Form>
-    </div>
+    let content;
+    if(sessionStorage.getItem('userId') == null){
+      content = <div></div>
+    }else{
+      content = <div>
+        <Form>
+          <Form.Field control={TextArea} label='Leave A Review' placeholder='Tell us if you like the album...' onChange={this.handleReview} />
+          <Button onClick={this.handleSubmitReview}>Submit</Button>
+        </Form>
+      </div>
+    }
+    return content
   }
 
   buildReviews(){
