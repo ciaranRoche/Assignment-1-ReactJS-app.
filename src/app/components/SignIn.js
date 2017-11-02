@@ -11,21 +11,21 @@ class SignIn extends Component {
     this.handleClick = this.handleClick.bind(this)
     this.state = {
       email : '',
-      password : '',
-      trigger : false
+      password : ''
     }
+    this.handleClick = this.handleClick.bind(this)
   }
 
   handleClick = (e) => {
-    fetch('http://localhost:3000/users?email=' + this.state.email).then(res => {
+    let url = 'http://localhost:3000/users?email=' + this.state.email;
+    fetch(url).then(res => {
       if(res.ok){
         return res.json()
       }
     }).then(data => {
       if(data != null){
-        if(data[0].email == this.state.email && data[0].password == this.state.password){
+        if(data[0].email == this.state.email){
           console.log('woohoo it works')
-          this.setState({trigger:true})
           sessionStorage.setItem('userId', data[0].id)
           console.log(sessionStorage.getItem('userId'))
         }else{
@@ -38,10 +38,7 @@ class SignIn extends Component {
   handleChange = (e) => {
     const name = e.target.name;
     this.setState({[name]: e.target.value});
-  }
-
-  authUser(){
-
+    console.log(this.state.email)
   }
 
   buildForm(){
@@ -54,10 +51,9 @@ class SignIn extends Component {
         <label>Password</label>
         <input name='password' type='password' placeholder='password' onChange={this.handleChange}/>
       </Form.Field>
-      <Button type='submit' onClick={this.handleClick.bind(this)}>SignIn</Button>
+      <Link to='app' ><Button type='submit' onClick={this.handleClick.bind(this)}>SignIn</Button></Link>
     </Form>
   }
-
 
   render() {
     return (
