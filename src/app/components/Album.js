@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
-import {Container, Image, Grid, Segment, Rail, Sticky, Header, Icon} from 'semantic-ui-react';
+import {Container, Image, Grid, Segment, Rail, Sticky, Header, Icon, Feed, Form, TextArea, Radio, Button} from 'semantic-ui-react';
 import vinylApi from '../API/vinylAPI';
 import Loading from './Loading';
+
 
 
 class Album extends Component{
@@ -40,9 +41,32 @@ class Album extends Component{
           reviews : data.reviews
         });
       };
+    }).then(() => {
+      console.log(this.state.reviews);
     });
   }
 
+  leaveReview(){
+    return<div>
+      <Form>
+        <Form.Field control={TextArea} label='Leave A Review' placeholder='Tell us if you like the album...' />
+        <Form.Field control={Button}>Submit</Form.Field>
+      </Form>
+    </div>
+  }
+
+  buildReviews(){
+    let content;
+    if(this.state.reviews.length == 0){
+      content = <div></div>
+    }else{
+      content = <div>
+        <h3>Reviews</h3>
+        <Feed events={this.state.reviews} />
+      </div>
+    }
+    return content
+  }
 
   render(){
     return(
@@ -64,6 +88,8 @@ class Album extends Component{
                   <p><b>Released : </b>{this.state.year}</p>
                   <p><b>About : </b>{this.state.notes}</p>
                   <p><b>Likes : </b>{this.state.likes}</p>
+                  {this.buildReviews()}
+                  {this.leaveReview()}
               </Grid.Column>
             </Grid.Row>
             

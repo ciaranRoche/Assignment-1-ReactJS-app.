@@ -12,18 +12,19 @@
       "reviews": [
         {
           "user": 1,
-          "review": "Love this album",
-          "likes": 2
+          "name": "Gardner",
+          "date": "5/7/17",
+          "image": "https://randomuser.me/api/portraits/men/11.jpg",
+          "summary": "Love this album"
         },
         {
           "user": 2,
-          "review": "My Favorite Album",
-          "likes": 5
+          "name": "Sondra",
+          "date": "18/8/17",
+          "image": "https://randomuser.me/api/portraits/women/13.jpg",
+          "summary": "My Favorite Album"
         }
-      ],
-      "op": "replace",
-      "path": "/likes",
-      "value": 5
+      ]
     },
     {
       "id": 1,
@@ -34,11 +35,14 @@
       "year": 1971,
       "notes": "Catalog entry #3, released on July21, 1971. Master of Reality reached #8 on the U.S. album chart, immediately going gold. It was Black Sabbaths1st album to debut in the Top 10. Also their first album to feature the heavier new sound created by dropping the tuning three semi-tones below the standard E, thus creating the premise for what would become known as the stoner rock sound.",
       "likes": 48,
-      "reviews": {
-        "user": 1,
-        "review": "Love this album",
-        "likes": 2
-      }
+      "reviews": [{
+          "user": 1,
+          "name": "Gardner",
+          "date": "21/9/17",
+          "image": "https://randomuser.me/api/portraits/men/11.jpg",
+          "summary": "Love this album"
+        }
+      ]
     },
     {
       "id": 2,
@@ -49,11 +53,7 @@
       "year": 1984,
       "notes": "Ride the Lightning is the second studio album by American heavy metal band Metallica, released on July27,1984, by the independent record label Megaforce Records",
       "likes": 17,
-      "reviews": {
-        "user": 1,
-        "review": "Love this album",
-        "likes": 2
-      }
+      "reviews": []
     },
     {
       "id": 3,
@@ -64,11 +64,7 @@
       "year": 2015,
       "notes": "The Night Creeper is the fourth studio album by English band Uncle Acid & the Deadbeats. The album released on4 September 2015.",
       "likes": 61,
-      "reviews": {
-        "user": 1,
-        "review": "Love this album",
-        "likes": 2
-      }
+      "reviews": []
     },
     {
       "id": 4,
@@ -79,11 +75,7 @@
       "year": 2010,
       "notes": "First released on Friday February13th, (40 years to the day after Black Sabbath’s debut LP), “Vol1” was the first efforts of unknown songwriter, Kevin Starrs. Pressed in small numbers for a non existing fan base, the album took several months to shift all30 CD-R copies and provided a small platform to fund its follow up, “Blood Lust” (2011).",
       "likes": 82,
-      "reviews": {
-        "user": 1,
-        "review": "Love this album",
-        "likes": 2
-      }
+      "reviews": []
     },
     {
       "id": 5,
@@ -94,11 +86,7 @@
       "year": 2017,
       "notes": "Villains is the seventh studio album by American rock band Queens of the Stone Age, released on August25, 2017 through Matador.",
       "likes": 26,
-      "reviews": {
-        "user": 1,
-        "review": "Love this album",
-        "likes": 2
-      }
+      "reviews": []
     },
     {
       "artist": "Primus",
