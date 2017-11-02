@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router';
 import {Container, Image, Grid, Segment, Rail, Sticky, Header, Icon, Feed, Form, TextArea, Radio, Button} from 'semantic-ui-react';
 import vinylApi from '../API/vinylAPI';
+import userApi from '../API/userAPI';
 import Loading from './Loading';
 
 
@@ -24,6 +25,7 @@ class Album extends Component{
     }
     this.handleReview = this.handleReview.bind(this);
     this.handleSubmitReview = this.handleSubmitReview.bind(this);
+    this.handleCollection = this.handleCollection.bind(this);
   }
 
   componentDidMount(){
@@ -52,7 +54,6 @@ class Album extends Component{
           return res.json()
       }).then(data => {
         if(data!=null){
-          console.log(data)
           this.setState({
             user: data
           })
@@ -61,6 +62,12 @@ class Album extends Component{
     }
   });
 }
+
+  handleCollection(e){
+    e.preventDefault();
+    this.state.user.collection.push(this.state.id)
+    userApi.addCollection(this.state.user.id, this.state.user.collection)
+  }
 
   handleReview(e){
     this.setState({userReview: e.target.value})
@@ -132,6 +139,7 @@ class Album extends Component{
                   <p><b>Released : </b>{this.state.year}</p>
                   <p><b>About : </b>{this.state.notes}</p>
                   <p><b>Likes : </b>{this.state.likes}</p>
+                  <Button onClick={this.handleCollection}>Add To Collection</Button>
                   {this.buildReviews()}
                   {this.leaveReview()}
               </Grid.Column>

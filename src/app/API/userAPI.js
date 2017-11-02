@@ -1,6 +1,6 @@
 import _ from 'lodash';
 const request = require('request-promise')
-const url = "http://localhost:3000/users/";
+const URL = "http://localhost:3000/users/";
 
 class UserAPI{
   constructor(){
@@ -10,7 +10,7 @@ class UserAPI{
   addUser(f,s,g,e,p,ad,ab,c,i){
     var options = {
       method: 'POST',
-      url : url,
+      url : URL,
       headers:{
         'cache-control': 'no-cache',
         'content-type': 'application/json'
@@ -34,6 +34,21 @@ class UserAPI{
       sessionStorage.setItem('userId', body.id)
     });
   }
+
+  addCollection(user, vinyl){
+    var options = { method: 'PATCH',
+    url: URL + user,
+    headers: 
+    { 'postman-token': 'c0777f44-572d-7e52-9c75-851c819ccb95',
+      'cache-control': 'no-cache',
+      'content-type': 'application/json' },
+    body: { collection: vinyl },
+    json: true };
+
+  request(options, function (error, response, body) {
+    if (error) throw new Error(error);
+  });
+}
 
 }
 

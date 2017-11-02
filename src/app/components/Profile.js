@@ -69,10 +69,10 @@ class Profile extends Component {
               <h1 className='ui dividing header'>{this.state.firstname} {this.state.surname}</h1>
               <p>
                 <b>Address :
-                </b>{this.state.address}</p>
+                </b> {this.state.address}</p>
               <p>
                 <b>Email :
-                </b>{this.state.email}</p>
+                </b> {this.state.email}</p>
               <div className='ui divider'></div>
               <h3>About</h3>
               <p>{this.state.about}</p>
