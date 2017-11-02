@@ -1,5 +1,4 @@
 import _ from 'lodash';
-const https = require("https");
 const request = require('request-promise')
 const url = "http://localhost:3000/vinyl";
 
