@@ -13,8 +13,8 @@ class Profile extends Component {
       address: '',
       about: '',
       profileImage: '',
-      likedBlogs: [],
-      blogs: []
+      vinylCollection: [],
+      vinyls: []
     }
   }
 
@@ -25,7 +25,6 @@ class Profile extends Component {
       }
     }).then(data => {
       if (data != null) {
-        console.log(data.profile_image)
         this.setState({
           firstname: data.firstname,
           surname: data.surname,
@@ -33,10 +32,26 @@ class Profile extends Component {
           email: data.email,
           address: data.address,
           about: data.about,
-          likedBlogs: data.liked_blogs,
+          vinylCollection: data.collection,
           profileImage: data.profile_image
         })
       }
+    }).then(() => {
+      let url = 'http://localhost:3000/vinyl?';
+      this.state.vinylCollection.forEach((element) =>{
+        url += 'id=' + element + '&'
+      })
+      fetch(url).then(res => {
+        if(res.ok){
+          return res.json()
+        }
+      }).then(data => {
+        if(data!=null){
+          this.setState({
+            vinyls: data
+          })
+        }
+      })
     })
   }
 
