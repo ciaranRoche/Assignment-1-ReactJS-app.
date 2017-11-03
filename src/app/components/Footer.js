@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {Divider} from 'semantic-ui-react';
+import {Link} from 'react-router';
+import {Divider, Icon} from 'semantic-ui-react';
 import styles from '../assets/style.css';
 
 
@@ -9,7 +10,9 @@ class Footer extends Component{
     return(<div>
         <div className='ui vertical segment'>
         <Divider/>
-          <h3>Ima A Footer</h3>
+          <Link to='app'><span>Home</span></Link> | <Link to='/about'><span>About</span></Link> | <Link to='/profile'><span>Profile</span></Link> | <Link to='/add'><span>Add Album</span></Link>
+          <p><Icon name='pied piper alternate' size='large' color='green' /></p>
+
       </div>
     </div>
     )

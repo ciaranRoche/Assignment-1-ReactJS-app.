@@ -30,7 +30,6 @@ class SignUp extends Component{
   handleChange(event){
     const name = event.target.name;
     this.setState({[name] : event.target.value});
-    console.log(this.state[name]);
   }
 
   // handles change from gender drop down

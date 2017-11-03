@@ -38,13 +38,10 @@ class VinylAPI{
     request(options, function (error, response, body) {
       if (error) 
         throw new Error(error);
-      
-      console.log(body);
     });
   }
 
   AddAlbum(a,al,i,g,y,n,l,r){
-    console.log('add album',a,al,i,g,y,n,l,r);
     var options = { method: 'POST',
       url: url,
       headers: 

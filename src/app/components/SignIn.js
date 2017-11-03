@@ -20,7 +20,6 @@ class SignIn extends Component {
     let url = 'http://localhost:3000/users?email=' + this.state.email;
     fetch(url).then(res => {
       if(res.ok){
-        console.log(res)
         return res.json()
       }
     }).then(data => {
@@ -38,7 +37,6 @@ class SignIn extends Component {
   handleChange = (e) => {
     const name = e.target.name;
     this.setState({[name]: e.target.value});
-    console.log(this.state.email)
   }
 
   buildButton(){
