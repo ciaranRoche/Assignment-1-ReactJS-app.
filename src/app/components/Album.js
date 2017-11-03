@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
-import {Container, Image, Grid, Segment, Rail, Sticky, Header, Icon, Feed, Form, TextArea, Radio, Button} from 'semantic-ui-react';
+import {Container, Image, Grid, Segment, Rail, Sticky, Header, Icon, Feed, Form, TextArea, Radio, Button, Divider} from 'semantic-ui-react';
 import vinylApi from '../API/vinylAPI';
 import userApi from '../API/userAPI';
 import Loading from './Loading';
@@ -21,7 +21,8 @@ class Album extends Component{
       likes : 0,
       reviews : [],
       user : [],
-      userReview : ''
+      userReview : '',
+      status : 'collection'
     }
     this.handleReview = this.handleReview.bind(this);
     this.handleSubmitReview = this.handleSubmitReview.bind(this);
@@ -65,8 +66,18 @@ class Album extends Component{
 
   handleCollection(e){
     e.preventDefault();
+    this.setState({
+      status:'check'
+    })
     this.state.user.collection.push(this.state.id)
-    userApi.addCollection(this.state.user.id, this.state.user.collection)
+    let p = userApi.addCollection(this.state.user.id, this.state.user.collection)
+    p.then(res => {
+      if(res == 200){
+        this.setState({
+          status:'success'
+        })
+      }
+    })
   }
 
   handleReview(e){
@@ -119,6 +130,20 @@ class Album extends Component{
     return content
   }
 
+  buildCollection(){
+    let content;
+    let status = this.state.status;
+    if(status == 'collection'){
+      content = <Button onClick={this.handleCollection}>Add To Collection</Button>
+    }
+    if(status == 'check'){
+      content = <Button loading>Loading</Button>
+    }
+    if(status == 'success'){
+      content = <Link to='/profile'><Button>Album Added</Button></Link>
+    }
+    return content;
+  }
   render(){
     return(
       <div>
@@ -139,7 +164,8 @@ class Album extends Component{
                   <p><b>Released : </b>{this.state.year}</p>
                   <p><b>About : </b>{this.state.notes}</p>
                   <p><b>Likes : </b>{this.state.likes}</p>
-                  <Button onClick={this.handleCollection}>Add To Collection</Button>
+                  {this.buildCollection()}
+                  <Divider/>
                   {this.buildReviews()}
                   {this.leaveReview()}
               </Grid.Column>

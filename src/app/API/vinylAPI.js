@@ -58,10 +58,17 @@ class VinylAPI{
         likes: l,
         reviews: r },
       json: true };
-
+    
+    let res;
     request(options, function (error, response, body) {
       if (error) throw new Error(error);
+      res = response;
     });
+
+    var promise = new Promise ((resolve, reject) => {
+      setTimeout(() => resolve(res.statusCode), 1000)
+    });
+    return promise;
   }
 
   like(key){  

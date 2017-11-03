@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {Container, Form, Image} from 'semantic-ui-react';
+import {Link} from 'react-router';
+import {Container, Form, Image, Button} from 'semantic-ui-react';
 import vinylAPI from '../API/vinylAPI';
 
 class AddAlbum extends Component{
@@ -13,7 +14,8 @@ class AddAlbum extends Component{
       image : '',
       note : '',
       likes : 0,
-      review : []
+      review : [],
+      status : 'add'
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -26,6 +28,7 @@ class AddAlbum extends Component{
 
   handleSubmit(e){
     e.preventDefault();
+    this.setState({status: 'check'})
     let a = this.state.artist.trim();
     let al = this.state.album.trim();
     let i = this.state.image.trim();
@@ -37,7 +40,27 @@ class AddAlbum extends Component{
     if(!a || !al || !i || !g || !y || !n){
       return;
     }
-    vinylAPI.AddAlbum(a,al,i,g,y,n,l,r);
+    let p = vinylAPI.AddAlbum(a,al,i,g,y,n,l,r);
+    p.then(res => {
+      if(res == 201){
+        this.setState({status: 'success'})
+      }
+    })
+  }
+
+  buildButton(){
+    let content;
+    let status = this.state.status;
+    if(status == 'add'){
+      content = <Button onClick={this.handleSubmit}>Submit</Button>
+    }
+    if(status == 'check'){
+      content = <Button loading>Loading</Button>
+    }
+    if(status == 'success'){
+      content = <Link to='app'><Button>Success</Button></Link>
+    }
+    return content
   }
 
   render(){
@@ -66,7 +89,7 @@ class AddAlbum extends Component{
               <Form.Input label='Image' name='image' placeholder='Image' onChange={this.handleChange} />
             </Form.Group>
             <Form.TextArea label='Note' name='note' placeholder='Tell us more about the album...' onChange={this.handleChange} />
-            <Form.Button onClick={this.handleSubmit}>Submit</Form.Button>
+            {this.buildButton()}
           </Form>
         </Container>
         </div>

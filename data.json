@@ -355,22 +355,11 @@
         4,
         9,
         8,
-        7
+        7,
+        4
       ],
       "profile_image": "https://media.giphy.com/media/26BRCgL3K4lx1zBCw/giphy.gif",
       "id": 10
-    },
-    {
-      "firstname": "pok",
-      "surname": "pok",
-      "gender": "male",
-      "email": "pok",
-      "password": "pok",
-      "address": "pok",
-      "about": "pok",
-      "collection": [],
-      "profile_image": "pok",
-      "id": 11
     }
   ]
 }
