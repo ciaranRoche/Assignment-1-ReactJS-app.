@@ -7,7 +7,9 @@ import vinylApi from '../API/vinylAPI';
 class VinylCards extends Component{
   constructor(props){
     super(props);
-    this.state = {}
+    this.state = {
+
+    }
     this.handleLike = this.handleLike.bind(this)
   }
 
