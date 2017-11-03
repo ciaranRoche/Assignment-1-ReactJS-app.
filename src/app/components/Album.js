@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import {Link} from 'react-router';
 import {Container, Image, Grid, Segment, Rail, Sticky, Header, Icon, Feed, Form, TextArea, Radio, Button, Divider} from 'semantic-ui-react';
 import vinylApi from '../API/vinylAPI';
-import userApi from '../API/userAPI';
 import Loading from './Loading';
 
+const request = require('request-promise')
 
 
 class Album extends Component{
@@ -70,14 +70,22 @@ class Album extends Component{
       status:'check'
     })
     this.state.user.collection.push(this.state.id)
-    let p = userApi.addCollection(this.state.user.id, this.state.user.collection)
-    p.then(res => {
-      if(res == 200){
-        this.setState({
-          status:'success'
-        })
+    let options = { method: 'PATCH',
+      url: "http://localhost:3000/users/" + this.state.user.id,
+      headers: 
+      { 'postman-token': 'c0777f44-572d-7e52-9c75-851c819ccb95',
+        'cache-control': 'no-cache',
+        'content-type': 'application/json' },
+      body: { collection: this.state.user.collection },
+      json: true };
+
+    let _ = this;  
+    request(options, function (error, response, body) {
+      if (error) throw new Error(error);
+      if(response.statusCode == 200){
+        setTimeout(() => _.setState({status : 'success'}), 1000)
       }
-    })
+    });
   }
 
   handleReview(e){

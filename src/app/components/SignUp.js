@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Container, Form, Button} from 'semantic-ui-react';
 import {Link} from 'react-router';
-import usersAPI from '../API/userAPI';
+const request = require('request-promise')
 
 const options = [
   { key: 'm', text: 'Male', value: 'male' },
@@ -39,28 +39,39 @@ class SignUp extends Component{
 
 
   handleSubmit = (e) => {
-    this.setState({status : 'check'})
     e.preventDefault();
-    let f = this.state.firstName.trim();
-    let s = this.state.surname.trim();
-    let g = this.state.gender.trim();
-    let em = this.state.email.trim();
-    let p = this.state.password.trim();
-    let ad = this.state.address.trim();
-    let ab = this.state.about.trim();
-    let c = [];
-    let i = this.state.picture.trim();
-    if(!f || !s || !g || !em || !p || !ad || !ab || !i){
-      return
-    }
-    let sign = usersAPI.addUser(f,s,g,em,p,ad,ab,c,i);
-    sign.then(res => {
-      if(res == 201){
-        this.setState({
-          status : 'success'
-        })
+    this.setState({status : 'check'})
+    var options = {
+      method: 'POST',
+      url : 'http://localhost:3000/users/',
+      headers:{
+        'cache-control': 'no-cache',
+        'content-type': 'application/json'
+      },
+      body:{
+        firstname: this.state.firstName.trim(),
+        surname: this.state.surname.trim(),
+        gender: this.state.gender.trim(),
+        email: this.state.email.trim(),
+        password: this.state.password.trim(),
+        address: this.state.address.trim(),
+        about: this.state.about.trim(),
+        collection: [],
+        profile_image: this.state.picture.trim()
+      },
+      json: true
+    };
+
+    let _ = this
+    request(options, function(error, response, body){
+      console.log(response)
+      if(error) throw new Error(error);
+      sessionStorage.setItem('userId', body.id);
+      if(response.statusCode == 201){
+        setTimeout(() => _.setState({status : 'success'}), 1000)
       }
-    })
+    });
+
   }
 
   buildButton(){
