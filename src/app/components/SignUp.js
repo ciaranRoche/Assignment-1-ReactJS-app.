@@ -53,7 +53,7 @@ class SignUp extends Component{
     if(!f || !s || !g || !em || !p || !ad || !ab || !i){
       return
     }
-    let sign = usersAPI.addUser(f,s,g,em,p,ab,ad,c,i);
+    let sign = usersAPI.addUser(f,s,g,em,p,ad,ab,c,i);
     sign.then(res => {
       if(res == 201){
         this.setState({

@@ -337,88 +337,19 @@
       "profile_image": "https://randomuser.me/api/portraits/men/60.jpg"
     },
     {
-      "firstname": "pok",
-      "surname": "pok",
+      "firstname": "ciaran",
+      "surname": "roche",
       "gender": "male",
-      "email": "pok",
-      "password": "pok",
-      "address": "pok",
-      "about": "pok",
-      "collection": [],
-      "profile_image": "pok",
+      "email": "test@mail.com",
+      "password": "test",
+      "address": "Ferrybank, Waterford",
+      "about": "I created the matrix. I've been waiting for you. You have many questions, and although the process has altered your consciousness, you remain irrevocably human. Ergo, some of my answers you will understand, and some of them you will not. Concordantly, while your first question may be the most pertinent, you may or may not realize it is also irrelevant.",
+      "collection": [
+        4,
+        9
+      ],
+      "profile_image": "https://media.giphy.com/media/26BRCgL3K4lx1zBCw/giphy.gif",
       "id": 10
-    },
-    {
-      "firstname": "[pl",
-      "surname": "[pl",
-      "gender": "male",
-      "email": "[pl",
-      "password": "[pl",
-      "address": "[pl",
-      "about": "[pl",
-      "collection": [],
-      "profile_image": "[pl",
-      "id": 11
-    },
-    {
-      "firstname": "[po",
-      "surname": "pojk",
-      "gender": "male",
-      "email": "pok",
-      "password": "pok",
-      "address": "pok",
-      "about": "pok",
-      "collection": [],
-      "profile_image": "pok",
-      "id": 12
-    },
-    {
-      "firstname": "pok",
-      "surname": "pok",
-      "gender": "male",
-      "email": "pok",
-      "password": "pok",
-      "address": "pok",
-      "about": "pok",
-      "collection": [],
-      "profile_image": "pok",
-      "id": 13
-    },
-    {
-      "firstname": "pok",
-      "surname": "pok",
-      "gender": "male",
-      "email": "pok",
-      "password": "pok",
-      "address": "pok",
-      "about": "pok",
-      "collection": [],
-      "profile_image": "pok",
-      "id": 14
-    },
-    {
-      "firstname": "pok",
-      "surname": "pok",
-      "gender": "male",
-      "email": "pok",
-      "password": "pok",
-      "address": "pok",
-      "about": "pok",
-      "collection": [],
-      "profile_image": "pok",
-      "id": 15
-    },
-    {
-      "firstname": "pok",
-      "surname": "pok",
-      "gender": "male",
-      "email": "pok",
-      "password": "pok",
-      "address": "pok",
-      "about": "pok",
-      "collection": [],
-      "profile_image": "pok",
-      "id": 16
     }
   ]
 }
