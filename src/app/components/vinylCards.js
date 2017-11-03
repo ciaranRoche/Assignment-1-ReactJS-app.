@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import {Card, Icon, Image, Container, Button} from 'semantic-ui-react';
 import {Link} from 'react-router';
 import Loading from './Loading';
-import vinylApi from '../API/vinylAPI';
+import _ from 'lodash';
+
+const request = require('request-promise');
 
 class VinylCards extends Component{
   constructor(props){
@@ -15,8 +17,20 @@ class VinylCards extends Component{
 
   handleLike(e){
     e.preventDefault();
-    vinylApi.like(e.target.name)
-    this.setState({test:false});
+    this.props.likeHandler(e.target.value, e.target.name)
+  }
+
+  buildButton(id, likes){
+    let content;
+    let home = <Button primary onClick={this.handleLike} name={id} value={likes}>
+          <i className="thumbs outline up icon"></i>
+          {likes} 
+        </Button>
+    let profile = <div><b>Likes :</b> {likes}</div>
+
+    this.props.location == 'home' ? content = home : content = profile
+    
+    return content
   }
 
   buildCards(){
@@ -40,10 +54,7 @@ class VinylCards extends Component{
           </Card.Description>
         </Card.Content>
         <Card.Content extra>
-        <Button primary onClick={this.handleLike} name={data.id}>
-          <i className="thumbs outline up icon"></i>
-          {data.likes} 
-        </Button>
+        {this.buildButton(data.id, data.likes)}
         </Card.Content>
       </Card>
     })

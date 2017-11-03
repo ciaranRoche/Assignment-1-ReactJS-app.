@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {Route, Redirect, Link} from 'react-router';
 import {Container, Grid, Image, Card} from 'semantic-ui-react';
 import VinylCards from './vinylCards';
-import vinylApi from '../API/vinylAPI';
 
 class Profile extends Component {
   constructor(props) {
@@ -39,6 +38,11 @@ class Profile extends Component {
         })
       }
     }).then(() => {
+      this.getVinyl()
+    })
+  }
+
+  getVinyl(){
       let url = 'http://localhost:3000/vinyl?';
       this.state.vinylCollection.forEach((element) =>{
         url += 'id=' + element + '&'
@@ -54,7 +58,6 @@ class Profile extends Component {
           })
         }
       })
-    })
   }
 
   render() {
@@ -84,7 +87,7 @@ class Profile extends Component {
         <Container textAlign='center'>
         <div>
           <h2>My Collection</h2>
-          <VinylCards vinyls={this.state.vinyls}/>
+          <VinylCards vinyls={this.state.vinyls} location='profile'/>
         </div>
       </Container>
       </div>

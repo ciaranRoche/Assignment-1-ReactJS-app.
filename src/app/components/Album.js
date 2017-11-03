@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
 import {Container, Image, Grid, Segment, Rail, Sticky, Header, Icon, Feed, Form, TextArea, Radio, Button, Divider} from 'semantic-ui-react';
-import vinylApi from '../API/vinylAPI';
 import Loading from './Loading';
 
 const request = require('request-promise')
@@ -104,10 +103,26 @@ class Album extends Component{
       "summary" : this.state.userReview
     }
     this.state.reviews.push(newReview)
-    vinylApi.addReview(this.state.reviews, this.state.id)
-    this.setState({
-      userReview: ''
-    })
+
+    var options = { method: 'PATCH',
+      url: 'http://localhost:3000/vinyl/' + this.state.id,
+      headers: 
+      { 
+        'cache-control': 'no-cache',
+        'content-type': 'application/json' },
+      body: 
+      { reviews: this.state.reviews },
+      json: true };
+
+    let _ = this;
+    request(options, function (error, response, body) {
+      if (error) throw new Error(error);
+      if(response.statusCode == 200){
+        _.setState({
+          userReview: ''
+        })
+      }
+    });
   }
 
   leaveReview(){

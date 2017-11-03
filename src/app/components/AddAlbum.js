@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
 import {Container, Form, Image, Button} from 'semantic-ui-react';
-import vinylAPI from '../API/vinylAPI';
+
+
+const request = require('request-promise');
 
 class AddAlbum extends Component{
   constructor(props){
@@ -40,12 +42,30 @@ class AddAlbum extends Component{
     if(!a || !al || !i || !g || !y || !n){
       return;
     }
-    let p = vinylAPI.AddAlbum(a,al,i,g,y,n,l,r);
-    p.then(res => {
-      if(res == 201){
-        this.setState({status: 'success'})
+    var options = { method: 'POST',
+      url: "http://localhost:3000/vinyl",
+      headers: 
+      { 
+        'cache-control': 'no-cache',
+        'content-type': 'application/json' },
+      body: 
+      { artist: a,
+        album: al,
+        image: i,
+        genre: g,
+        year: y,
+        notes: n,
+        likes: l,
+        reviews: r },
+      json: true };
+    
+    let _ = this;
+    request(options, function (error, response, body) {
+      if (error) throw new Error(error);
+      if(response.statusCode == 201){
+        setTimeout(() => _.setState({status: 'success'}) ,1000);
       }
-    })
+    });
   }
 
   buildButton(){
