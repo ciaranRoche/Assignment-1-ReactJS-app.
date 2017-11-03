@@ -54,7 +54,15 @@
       "year": 1984,
       "notes": "Ride the Lightning is the second studio album by American heavy metal band Metallica, released on July27,1984, by the independent record label Megaforce Records",
       "likes": 30,
-      "reviews": []
+      "reviews": [
+        {
+          "user": 10,
+          "name": "ciaran",
+          "date": "3/10/2017",
+          "image": "https://media.giphy.com/media/26BRCgL3K4lx1zBCw/giphy.gif",
+          "summary": "Classic Album"
+        }
+      ]
     },
     {
       "id": 3,
@@ -64,7 +72,7 @@
       "genre": "Doom",
       "year": 2015,
       "notes": "The Night Creeper is the fourth studio album by English band Uncle Acid & the Deadbeats. The album released on4 September 2015.",
-      "likes": 70,
+      "likes": 71,
       "reviews": [
         {
           "user": 2,
@@ -388,7 +396,8 @@
         9,
         8,
         7,
-        4
+        4,
+        14
       ],
       "profile_image": "https://media.giphy.com/media/26BRCgL3K4lx1zBCw/giphy.gif",
       "id": 10

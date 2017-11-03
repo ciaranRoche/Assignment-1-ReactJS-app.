@@ -6,7 +6,7 @@ class Loading extends React.Component{
     return(
     <Segment>
     <Dimmer active>
-      <Loader>Loading...</Loader>
+      <Loader>Searching...</Loader>
     </Dimmer>
 
     <Image fluid src='https://s3-eu-west-1.amazonaws.com/piedpipervinyl/cover.jpg' />

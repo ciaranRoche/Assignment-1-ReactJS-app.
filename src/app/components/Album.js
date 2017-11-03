@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
-import {Container, Image, Grid, Segment, Rail, Sticky, Header, Icon, Feed, Form, TextArea, Radio, Button, Divider} from 'semantic-ui-react';
+import {Container, Image, Grid, Segment, Rail, Sticky, Header, Icon, Feed, Form, TextArea, Radio, Button, Divider, Confirm} from 'semantic-ui-react';
 import Loading from './Loading';
 
 const request = require('request-promise')
@@ -21,7 +21,8 @@ class Album extends Component{
       reviews : [],
       user : [],
       userReview : '',
-      status : 'collection'
+      status : 'collection',
+      open: false
     }
     this.handleReview = this.handleReview.bind(this);
     this.handleSubmitReview = this.handleSubmitReview.bind(this);
@@ -29,37 +30,47 @@ class Album extends Component{
   }
 
   componentDidMount(){
-    let link = 'http://localhost:3000/vinyl/' + this.props.params.id
-    fetch(link).then(res => {
-      if (res.ok)
-        return res.json()
-    }).then(data => {
-      if (data!=null){
-        this.setState({
-          id : data.id,
-          artist : data.artist,
-          album : data.album,
-          image : data.image,
-          genre : data.genre,
-          year : data.year,
-          notes : data.notes,
-          likes : data.likes,
-          reviews : data.reviews
-        });
-      };
-    }).then(() => {
-      if(sessionStorage.getItem('userId') != null){
-      fetch('http://localhost:3000/users/' + sessionStorage.getItem('userId')).then(res => {
-        if(res.ok)
-          return res.json()
-      }).then(data => {
-        if(data!=null){
-          this.setState({
-            user: data
-          })
-        }
+  var options = { method: 'GET',
+    url: 'http://localhost:3000/vinyl/' + this.props.params.id,
+    headers: 
+    { 
+      'cache-control': 'no-cache',
+      'content-type': 'application/json' } };
+  let _ = this;
+  request(options, function (error, response, body) {
+    if (error) throw new Error(error);
+    let album = JSON.parse(body)
+    if(response.statusCode == 200){
+      _.setState({
+        id : album.id,
+        artist : album.artist,
+        album : album.album,
+        image : album.image,
+        genre : album.genre,
+        year : album.year,
+        notes : album.notes,
+        likes : album.likes,
+        reviews : album.reviews
       })
     }
+  }).then(() => {
+    var options = { method: 'GET',
+      url: 'http://localhost:3000/users/' + sessionStorage.getItem('userId'),
+      headers: 
+      {
+        'cache-control': 'no-cache',
+        'content-type': 'application/json' }};
+
+    let _ = this;
+    request(options, function (error, response, body) {
+      if (error) throw new Error(error);
+      if(response.statusCode == 200){
+        body = JSON.parse(body)
+        _.setState({
+          user:body
+        })
+      }
+    });
   });
 }
 
@@ -167,7 +178,58 @@ class Album extends Component{
     }
     return content;
   }
+
+  show = () => this.setState({ open: true })
+  handleConfirm = () => {
+    var options = {
+      method: 'DELETE',
+      url: 'http://localhost:3000/vinyl/' + '/' + this.state.id,
+      headers: {
+        'cache-control': 'no-cache',
+        'content-type': 'application/json'
+      }
+    };
+    let _ = this;
+    request(options, function (error, response, body) {
+      if (error) throw new Error(error);
+      if(response.statusCode == 200){
+        _.setState({ 
+          open: false,
+          album : ''
+        })
+      }
+    });
+  }
+  handleCancel = () => this.setState({ open: false })
+
+  buildDelete(){
+    return(
+      <div>
+        <h3>Danger Zone</h3>
+        <Button color='red' onClick={this.show}>Delete</Button>
+        <Confirm
+          open={this.state.open}
+          header='Delete Album :('
+          content='Are you sure you want to kill off this album?'
+          cancelButton='No not yet'
+          confirmButton="Let's do it"
+          onCancel={this.handleCancel}
+          onConfirm={this.handleConfirm}
+        />
+      </div>
+    )
+  }
+
+
   render(){
+    if(this.state.album == ''){
+      return(
+        <Container textAlign='center'>
+          <h1>Aww No Dog, Nothing to Show</h1>
+          <Link to='app'><Button>Return</Button></Link>
+        </Container>
+      )
+    }
     return(
       <div>
         <Container>
@@ -191,6 +253,8 @@ class Album extends Component{
                   <Divider/>
                   {this.buildReviews()}
                   {this.leaveReview()}
+                  <Divider/>
+                  {this.buildDelete()}
               </Grid.Column>
             </Grid.Row>
             
