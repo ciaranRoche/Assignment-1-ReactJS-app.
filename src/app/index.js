@@ -10,6 +10,7 @@ import Profile from './components/Profile';
 import Landing from './components/Landing';
 import styles from './assets/style.css';
 
+
 ReactDOM.render(
   <Router history={hashHistory}>
         <Route path='/' component={Landing}/>

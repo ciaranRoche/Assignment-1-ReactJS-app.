@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link, Redirect, Route} from 'react-router';
 import {Container,Button,Form} from 'semantic-ui-react';
 import HeaderComponent from './Header';
+const request = require('request-promise')
 
 class SignIn extends Component {
   constructor(props){
@@ -17,21 +18,23 @@ class SignIn extends Component {
 
   handleClick = (e) => {
     this.setState({status: 'check'})
-    let url = 'http://localhost:3000/users?email=' + this.state.email;
-    fetch(url).then(res => {
-      if(res.ok){
-        return res.json()
-      }
-    }).then(data => {
-      if(data != undefined){
-        if(data[0].email == this.state.email && data[0].password == this.state.password){
+    let options = { method: 'GET',
+      url: 'http://localhost:3000/users?email=' + this.state.email,
+      headers: 
+      {
+        'cache-control': 'no-cache',
+        'content-type': 'application/json' } };
+    let _ = this;    
+    request(options, function (error, response, body) {
+      if (error) throw new Error(error);
+      if(response.statusCode == 200){
+        let data = JSON.parse(body);
+        if(data[0].email == _.state.email && data[0].password == _.state.password){
           sessionStorage.setItem('userId', data[0].id)
-          setTimeout(() => this.setState({status: 'success'}), 1000)
+          setTimeout(() => _.setState({status: 'success'}), 1000)
         }
-        }else{
-          this.setState({status: 'fail'})
       }
-    })
+    });
   }
 
   handleChange = (e) => {

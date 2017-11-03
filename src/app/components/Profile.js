@@ -3,6 +3,8 @@ import {Route, Redirect, Link} from 'react-router';
 import {Container, Grid, Image, Card} from 'semantic-ui-react';
 import VinylCards from './vinylCards';
 
+const request = require('request-promise')
+
 class Profile extends Component {
   constructor(props) {
     super(props);
@@ -20,45 +22,55 @@ class Profile extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/users/' + sessionStorage.getItem('userId')).then(res => {
-      if (res.ok) {
-        return res.json()
-      }
-    }).then(data => {
-      if (data != null) {
-        this.setState({
-          firstname: data.firstname,
-          surname: data.surname,
-          gender: data.gender,
-          email: data.email,
-          address: data.address,
-          about: data.about,
-          vinylCollection: data.collection,
-          profileImage: data.profile_image
-        })
-      }
-    }).then(() => {
-      this.getVinyl()
-    })
+  var options = { method: 'GET',
+    url: 'http://localhost:3000/users/' + sessionStorage.getItem('userId'),
+    headers: 
+    {
+      'cache-control': 'no-cache',
+      'content-type': 'application/json' } };
+  let _ = this;
+  request(options, function (error, response, body) {
+    if (error) throw new Error(error);
+    if(response.statusCode == 200){
+      let data = JSON.parse(body);
+      _.setState({
+        firstname: data.firstname,
+        surname: data.surname,
+        gender: data.gender,
+        email: data.email,
+        address: data.address,
+        about: data.about,
+        vinylCollection: data.collection,
+        profileImage: data.profile_image
+      })
+    }
+  }).then(() => {
+    _.getVinyl()
+  });
   }
 
   getVinyl(){
-      let url = 'http://localhost:3000/vinyl?';
-      this.state.vinylCollection.forEach((element) =>{
-        url += 'id=' + element + '&'
-      })
-      fetch(url).then(res => {
-        if(res.ok){
-          return res.json()
-        }
-      }).then(data => {
-        if(data!=null){
-          this.setState({
-            vinyls: data
-          })
-        }
-      })
-  }
+    let url = 'http://localhost:3000/vinyl?';
+    this.state.vinylCollection.forEach((element) =>{
+      url += 'id=' + element + '&'
+    })
+    var options = { method: 'GET',
+      url: url,
+      headers: 
+      { 
+        'cache-control': 'no-cache',
+        'content-type': 'application/json' } };
+    let _ = this;    
+    request(options, function (error, response, body) {
+      if (error) throw new Error(error);
+      if(response.statusCode == 200){
+        let collection = JSON.parse(body)
+        _.setState({
+          vinyls : collection
+        })
+      }
+    });
+}
 
   render() {
     return (<div>

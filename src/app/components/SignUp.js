@@ -64,7 +64,6 @@ class SignUp extends Component{
 
     let _ = this
     request(options, function(error, response, body){
-      console.log(response)
       if(error) throw new Error(error);
       sessionStorage.setItem('userId', body.id);
       if(response.statusCode == 201){
