@@ -21,6 +21,7 @@ class SignUp extends Component{
       address: '',
       about : '',
       picture : '',
+      signedUp : false,
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleChangeGender = this.handleChangeGender.bind(this);
@@ -52,7 +53,22 @@ class SignUp extends Component{
     if(!f || !s || !g || !em || !p || !ad || !ab || !i){
       return
     }
-    usersAPI.addUser(f,s,g,em,p,ab,ad,c,i);
+    let sign = usersAPI.addUser(f,s,g,em,p,ab,ad,c,i);
+    sign.then(res => {
+      if(res == 201){
+        this.setState({
+          signedUp : true
+        })
+      }
+    })
+  }
+
+  buildButton(){
+    let content;
+    let signUp = <Button type='submit' onClick={this.handleSubmit.bind(this)}>SignIn</Button>
+    let success = <Link to='app' ><Button>Success</Button></Link>
+    this.state.signedUp == false ? content = signUp : content = success
+    return content;
   }
 
   render(){
@@ -74,7 +90,7 @@ class SignUp extends Component{
             <Form.Input type='picture' name='picture' label='Profile Image' placeholder='Profile Picture' onChange={this.handleChange} />
           </Form.Group>
           <Form.TextArea label='About' name='about' placeholder='Tell us more about you...' onChange={this.handleChange}/>
-          <Link to='app/'><Form.Button onClick={this.handleSubmit.bind(this)}>Submit</Form.Button></Link>
+          {this.buildButton()}
         </Form>
       </Container>
     )

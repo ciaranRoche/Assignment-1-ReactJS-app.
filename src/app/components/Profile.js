@@ -58,12 +58,12 @@ class Profile extends Component {
   }
 
   render() {
-    return (
+    return (<div>
       <Container textAlign='center'>
         <Grid celled='internally'>
           <Grid.Row>
-            <Grid.Column width={3}>
-              <Image fluid src={this.state.profileImage}/>
+            <Grid.Column width={6}>
+              <Image fluid src={this.state.profileImage} style={{height: '300px'}}/>
             </Grid.Column>
             <Grid.Column width={10}>
               <h1 className='ui dividing header'>{this.state.firstname} {this.state.surname}</h1>
@@ -77,18 +77,17 @@ class Profile extends Component {
               <h3>About</h3>
               <p>{this.state.about}</p>
             </Grid.Column>
-            <Grid.Column width={3}>
-              <Image fluid src={this.state.profileImage}/>
-            </Grid.Column>
           </Grid.Row>
         </Grid>
-        <div className='ui divider'></div>
+        </Container>
+          <Image src='https://s3-eu-west-1.amazonaws.com/piedpipervinyl/cover6.gif' fluid style={{height: '350px', margin:'40px 0'}}/>
+        <Container textAlign='center'>
         <div>
           <h2>My Collection</h2>
           <VinylCards vinyls={this.state.vinyls}/>
         </div>
       </Container>
-
+      </div>
     )
   }
 }

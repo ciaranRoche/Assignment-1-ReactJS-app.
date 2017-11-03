@@ -29,10 +29,17 @@ class UserAPI{
       json: true
     };
 
+    let res;
     request(options, function(error, response, body){
       if(error) throw new Error(error);
-      sessionStorage.setItem('userId', body.id)
+      sessionStorage.setItem('userId', body.id);
+      res = response
     });
+
+    var promise = new Promise ((resolve, reject) => {
+      setTimeout(() => resolve(res.statusCode), 1000)
+    });
+    return promise;
   }
 
   addCollection(user, vinyl){
@@ -47,6 +54,7 @@ class UserAPI{
 
   request(options, function (error, response, body) {
     if (error) throw new Error(error);
+    console.log(response)
   });
 }
 

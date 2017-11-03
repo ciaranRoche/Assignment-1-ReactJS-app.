@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import {Link, Redirect, Route} from 'react-router';
 import {Container,Button,Form} from 'semantic-ui-react';
 import HeaderComponent from './Header';
-import App from './App';
-import Home from './Home';
 
 class SignIn extends Component {
   constructor(props){
