@@ -24,16 +24,17 @@ class SignUp extends Component{
       status : 'signUp',
     }
     this.handleChange = this.handleChange.bind(this);
-    this.handleChangeGender = this.handleChangeGender.bind(this);
+    this.handleGender = this.handleGender.bind(this);
   }
 
   handleChange(event){
     const name = event.target.name;
     this.setState({[name] : event.target.value});
+    console.log(this.state.gender)
   }
 
   // handles change from gender drop down
-  handleChangeGender(event, {value}){
+  handleGender(event, {value}){
     this.setState({gender:value});
   }
 
@@ -88,14 +89,13 @@ class SignUp extends Component{
   }
 
   render(){
-    const { value } = this.state
     return(
       <Container textAlign='center'>
         <Form>
           <Form.Group widths='equal'>
             <Form.Input label='First name' name='firstName' placeholder='First name' onChange={this.handleChange} />
             <Form.Input label='Last name' name='surname' placeholder='Last name' onChange={this.handleChange} />
-            <Form.Select label='Gender' name='gender' options={options} value='gender' placeholder='Gender' onChange={this.handleChangeGender} />
+            <Form.Select label='Gender' options={options} placeholder='Gender' name='gender' onChange={this.handleGender} />
           </Form.Group>
           <Form.Group widths='equal'>
             <Form.Input label='Email' name='email' placeholder='Email Address' onChange={this.handleChange} />
