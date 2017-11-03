@@ -21,7 +21,7 @@ class SignUp extends Component{
       address: '',
       about : '',
       picture : '',
-      signedUp : false,
+      status : 'signUp',
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleChangeGender = this.handleChangeGender.bind(this);
@@ -40,6 +40,7 @@ class SignUp extends Component{
 
 
   handleSubmit = (e) => {
+    this.setState({status : 'check'})
     e.preventDefault();
     let f = this.state.firstName.trim();
     let s = this.state.surname.trim();
@@ -57,7 +58,7 @@ class SignUp extends Component{
     sign.then(res => {
       if(res == 201){
         this.setState({
-          signedUp : true
+          status : 'success'
         })
       }
     })
@@ -65,9 +66,15 @@ class SignUp extends Component{
 
   buildButton(){
     let content;
-    let signUp = <Button type='submit' onClick={this.handleSubmit.bind(this)}>SignIn</Button>
-    let success = <Link to='app' ><Button>Success</Button></Link>
-    this.state.signedUp == false ? content = signUp : content = success
+    if (this.state.status == 'signUp'){
+      content = <Button type='submit' onClick={this.handleSubmit.bind(this)}>SignIn</Button>
+    };
+    if (this.state.status == 'check'){
+      content = <Button loading>Loading</Button>
+    };
+    if (this.state.status == 'success'){
+      content = <Link to='app' ><Button>Success</Button></Link>
+    }
     return content;
   }
 
