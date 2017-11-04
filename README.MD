@@ -16,6 +16,7 @@ There is also a profile page which shows the users profile, their details and th
  + Sign Up
  + Like an Album
  + Review an Album
+ + Add an Album
  + Search Albums by Artist
  + Delete Album
  + Add Album to a Collection
