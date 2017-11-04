@@ -72,14 +72,20 @@ class AddAlbum extends Component{
     let content;
     let status = this.state.status;
     if(status == 'add'){
-      content = <Button onClick={this.handleSubmit}>Submit</Button>
+      content = <Button basic onClick={this.handleSubmit}>Submit</Button>
     }
     if(status == 'check'){
-      content = <Button loading>Loading</Button>
+      content = <Button basic loading>Loading</Button>
     }
     if(status == 'success'){
-      content = <Link to='app'><Button>Success</Button></Link>
+      content = <Link to='app'><Button basic color='green'>Success</Button></Link>
     }
+    return content
+  }
+
+  buildImage(){
+    let content;
+    this.state.image != '' ? content = this.state.image : content = 'https://s3-eu-west-1.amazonaws.com/piedpipervinyl/cover1.jpg'
     return content
   }
 
@@ -88,7 +94,7 @@ class AddAlbum extends Component{
     return (<div>
         <Container textAlign='center'>
           <div className="ui vertical stripe center aligned segment">
-            <div className='ui text container'>
+            <div className='ui text container' style={{fontSize: '1.4rem', fontWeight: '2em'}}>
               <h1>Add an Album</h1>
               <p><b>Contribute</b> to the database.</p>
               <p><b>Add</b> an album </p>
@@ -96,7 +102,7 @@ class AddAlbum extends Component{
             </div>
           </div>
         </Container>
-        <Image src='https://s3-eu-west-1.amazonaws.com/piedpipervinyl/cover1.jpg' fluid style={{height: '350px', margin:'40px 0'}}/>
+        <Image src={this.buildImage()} fluid style={{height: '350px', margin:'40px 0'}}/>
         <Container textAlign='center'>
           <Form>
             <Form.Group widths='equal'>

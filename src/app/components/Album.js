@@ -144,7 +144,7 @@ class Album extends Component{
       content = <div>
         <Form>
           <Form.Field control={TextArea} label='Leave A Review' placeholder='Tell us if you like the album...' onChange={this.handleReview} />
-          <Button onClick={this.handleSubmitReview}>Submit</Button>
+          <Button basic onClick={this.handleSubmitReview}>Submit</Button>
         </Form>
       </div>
     }
@@ -168,13 +168,13 @@ class Album extends Component{
     let content;
     let status = this.state.status;
     if(status == 'collection'){
-      content = <Button onClick={this.handleCollection}>Add To Collection</Button>
+      content = <Button basic onClick={this.handleCollection}>Add To Collection</Button>
     }
     if(status == 'check'){
-      content = <Button loading>Loading</Button>
+      content = <Button basic loading>Loading</Button>
     }
     if(status == 'success'){
-      content = <Link to='/profile'><Button>Album Added</Button></Link>
+      content = <Link to='/profile'><Button basic color='green'>Album Added</Button></Link>
     }
     return content;
   }
@@ -206,7 +206,7 @@ class Album extends Component{
     return(
       <div>
         <h3>Danger Zone</h3>
-        <Button color='red' onClick={this.show}>Delete</Button>
+        <Button basic color='red' onClick={this.show}>Delete</Button>
         <Confirm
           open={this.state.open}
           header='Delete Album :('
@@ -226,7 +226,7 @@ class Album extends Component{
       return(
         <Container textAlign='center'>
           <h1>Aww No Dog, Nothing to Show</h1>
-          <Link to='app'><Button>Return</Button></Link>
+          <Link to='app'><Button basic>Return</Button></Link>
         </Container>
       )
     }

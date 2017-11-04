@@ -8,7 +8,7 @@
       "genre": "Doom",
       "year": 1992,
       "notes": "Sleeps Holy Mountain is the second studio album by the American band Sleep.It was released in November1992 in Europe, and March1993 in the USA through Earache Records.",
-      "likes": 17,
+      "likes": 18,
       "reviews": [
         {
           "user": 1,
@@ -53,7 +53,7 @@
       "genre": "Trash Metal",
       "year": 1984,
       "notes": "Ride the Lightning is the second studio album by American heavy metal band Metallica, released on July27,1984, by the independent record label Megaforce Records",
-      "likes": 30,
+      "likes": 31,
       "reviews": [
         {
           "user": 10,
@@ -72,7 +72,7 @@
       "genre": "Doom",
       "year": 2015,
       "notes": "The Night Creeper is the fourth studio album by English band Uncle Acid & the Deadbeats. The album released on4 September 2015.",
-      "likes": 71,
+      "likes": 72,
       "reviews": [
         {
           "user": 2,
@@ -91,7 +91,7 @@
       "genre": "Doom",
       "year": 2010,
       "notes": "First released on Friday February13th, (40 years to the day after Black Sabbath’s debut LP), “Vol1” was the first efforts of unknown songwriter, Kevin Starrs. Pressed in small numbers for a non existing fan base, the album took several months to shift all30 CD-R copies and provided a small platform to fund its follow up, “Blood Lust” (2011).",
-      "likes": 112,
+      "likes": 113,
       "reviews": [
         {
           "user": 8,
@@ -146,7 +146,7 @@
       "genre": "Punk",
       "year": "1984",
       "notes": "Live '84 is an album released by Black Flag in 1984 on SST Records. It is a live recording of a show played in 1984 and features mostly tracks from My War and Slip It In. The album was recorded at the Stone nightclub in San Francisco, CA.",
-      "likes": 8,
+      "likes": 9,
       "reviews": [],
       "id": 7
     },
@@ -157,7 +157,7 @@
       "genre": "Punk",
       "year": "1977",
       "notes": "Rocket to Russia is the third studio album by the American punk rock band the Ramones, and was released on November 4, 1977, through Sire Records. Its origins date back to the summer of 1977, when \"Sheena Is a Punk Rocker\" was released as a single.",
-      "likes": 13,
+      "likes": 14,
       "reviews": [
         {
           "user": 10,
@@ -176,7 +176,7 @@
       "genre": "Rock",
       "year": "1972",
       "notes": "Vol. 4 is the fourth studio album by English rock band Black Sabbath, released in September 1972. It was the first album by Black Sabbath not produced by Rodger Bain; guitarist Tony Iommi assumed production duties.",
-      "likes": 6,
+      "likes": 7,
       "reviews": [
         {
           "user": 10,
@@ -195,7 +195,7 @@
       "genre": "Rock",
       "year": "2014",
       "notes": "Empress Rising is the band’s first full-length release and consists of “only” 5 songs, though the album clocks in an impressive length of over 45 minutes. First track is the title track, which is also the longest track on the album, being just over 12 minutes in length. And the album couldn’t start better. After a gentle opener this track just builds up on the fuzz and heavy low-end riffing and slowly introduces more and more elements to the music. Thomas Jäger’s vocals are very good and perhaps initially a bit surprising on first listen. So many doom bands I’ve listened to lately employ the more heavier grunting or more shouting vocal style, while Jäger’s vocals are very spacey, nicely produced by the use of some echoey effects. It’s giving the music a very hypnotic effect.",
-      "likes": 6,
+      "likes": 20,
       "reviews": [],
       "id": 10
     },
@@ -206,7 +206,7 @@
       "genre": "Rock",
       "year": "1971",
       "notes": "6th studio album released April 19, 1971.\nThe US and UK releases were initially issued in rounded-corner sleeves with embossed text. The front has a cut-out window with clear acetate, on which the band photo is printed black half-tone. The disc is in a yellow radius-corner liner, which provides background color to the sleeve window image when inserted.\n\nLater sleeves or cover images simply emulate this effect, with no die-cuts and with normal square corners.",
-      "likes": 1,
+      "likes": 2,
       "reviews": [
         {
           "user": 10,
@@ -217,6 +217,36 @@
         }
       ],
       "id": 11
+    },
+    {
+      "artist": "Fear Factory",
+      "album": "Demanufacture",
+      "image": "https://s3-eu-west-1.amazonaws.com/piedpipervinyl/fearfac.jpg",
+      "genre": "Metal",
+      "year": "1995",
+      "notes": "Demanufacture is the second studio album by American industrial metal band Fear Factory, released on June 13, 1995 by Roadrunner Records. Burton C. Bell wrote a majority of the lyrics and Dino Cazares wrote all the music.",
+      "likes": 10,
+      "reviews": [
+        {
+          "user": 10,
+          "name": "ciaran",
+          "date": "4/10/2017",
+          "image": "https://media.giphy.com/media/26BRCgL3K4lx1zBCw/giphy.gif",
+          "summary": "Self Bias Resistor . . . heaviest song ever"
+        }
+      ],
+      "id": 12
+    },
+    {
+      "artist": "Metallica",
+      "album": ". . . And Justice For All",
+      "image": "https://s3-eu-west-1.amazonaws.com/piedpipervinyl/justice.jpg",
+      "genre": "Metal",
+      "year": "1988",
+      "notes": "…And Justice for All is the fourth studio album by American heavy metal band Metallica, released on August 25, 1988, by Elektra Records. It was the band's first studio album to feature bassist Jason Newsted after the death of Cliff Burton in 1986.",
+      "likes": 0,
+      "reviews": [],
+      "id": 13
     }
   ],
   "users": [
@@ -397,7 +427,9 @@
         8,
         7,
         4,
-        14
+        14,
+        10,
+        12
       ],
       "profile_image": "https://media.giphy.com/media/26BRCgL3K4lx1zBCw/giphy.gif",
       "id": 10

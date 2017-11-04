@@ -30,7 +30,6 @@ class SignUp extends Component{
   handleChange(event){
     const name = event.target.name;
     this.setState({[name] : event.target.value});
-    console.log(this.state.gender)
   }
 
   // handles change from gender drop down
@@ -77,19 +76,19 @@ class SignUp extends Component{
   buildButton(){
     let content;
     if (this.state.status == 'signUp'){
-      content = <Button type='submit' onClick={this.handleSubmit.bind(this)}>SignIn</Button>
+      content = <Button basic type='submit' onClick={this.handleSubmit.bind(this)}>SignIn</Button>
     };
     if (this.state.status == 'check'){
-      content = <Button loading>Loading</Button>
+      content = <Button basic loading>Loading</Button>
     };
     if (this.state.status == 'success'){
-      content = <Link to='app' ><Button>Success</Button></Link>
+      content = <Link to='app' ><Button basic color='green'>Success</Button></Link>
     }
     return content;
   }
 
   render(){
-    return(
+    return(<div>
       <Container textAlign='center'>
         <Form>
           <Form.Group widths='equal'>
@@ -109,6 +108,7 @@ class SignUp extends Component{
           {this.buildButton()}
         </Form>
       </Container>
+      </div>
     )
   }
 }

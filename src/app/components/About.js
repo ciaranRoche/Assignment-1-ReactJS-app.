@@ -7,7 +7,7 @@ class About extends Component{
       <div>
         <Container textAlign='center'>
         <div className="ui vertical stripe center aligned segment">
-          <div className='ui text container'>
+          <div className='ui text container' style={{fontSize: '1.4rem', fontWeight: '2em'}}>
             <h1>About Pied Piper</h1>
             <p><b>Discover</b> new music.</p>
             <p><b>Track</b> your collection.</p>
@@ -18,13 +18,15 @@ class About extends Component{
         <Image src='https://s3-eu-west-1.amazonaws.com/piedpipervinyl/cover.jpg' fluid style={{height: '350px', margin:'40px 0'}}/>
         <Container textAlign='center'>
         <div className="ui vertical stripe center aligned segment">
-          <div className="ui text container">
-          <p>Lorem ipsum dolor sit amet, suscipit nec dui lorem pellentesque, lectus vitae sed culpa cras et neque, ultrices mattis aliquet nec ultrices curabitur. Justo aenean nullam vitae tellus amet nullam, et wisi, gravida odio hac turpis viverra diam nam, dolor ipsum libero. Vulputate leo pede rutrum proin, pede nulla, tellus orci et elit consequuntur sed neque. Nonummy justo egestas. Sociis sem justo sed pede, wisi rutrum risus dolor morbi justo, rutrum a amet vehicula. Elit sed eros id nostra facilisi, taciti et vulputate dolor, velit vel praesent eu, neque duis nunc cursus. Viverra cursus hac urna suspendisse, eros porta at at mauris, ut morbi ut quaerat rutrum eleifend sagittis.</p>
-          <p>Lorem ipsum dolor sit amet, suscipit nec dui lorem pellentesque, lectus vitae sed culpa cras et neque, ultrices mattis aliquet nec ultrices curabitur. Justo aenean nullam vitae tellus amet nullam, et wisi, gravida odio hac turpis viverra diam nam, dolor ipsum libero. Vulputate leo pede rutrum proin, pede nulla, tellus orci et elit consequuntur sed neque.</p>
-          <p>Lorem ipsum dolor sit amet, suscipit nec dui lorem pellentesque, lectus vitae sed culpa cras et neque, ultrices mattis aliquet nec ultrices curabitur. Justo aenean nullam vitae tellus amet nullam, et wisi, gravida odio hac turpis viverra diam nam, dolor ipsum libero. Vulputate leo pede rutrum proin, pede nulla, tellus orci et elit consequuntur sed neque. Nonummy justo egestas. Sociis sem justo sed pede, wisi rutrum risus dolor morbi justo, rutrum a amet vehicula. Elit sed eros id nostra facilisi, taciti et vulputate dolor, velit vel praesent eu, neque duis nunc cursus. Viverra cursus hac urna suspendisse, eros porta at at mauris, ut morbi ut quaerat rutrum eleifend sagittis.</p>
+          <div className="ui text container" style={{fontSize: '1.4rem', fontWeight: '2em'}}>
+          <p>We're on a mission to build the biggest and most comprehensive music database and marketplace. Imagine a site with discographies of all labels, all artists, all cross-referenced, and an international marketplace built off of that database. It's for the love of music, and we're getting closer every day.</p>
+          <p>We share a passion for listening to, creating, and/or studying music.</p>
+          <p>We are proactive in our pursuit of continuous improvement and excellence in our people, projects, products, services, and software.</p>
+          <p>Pied Piper is a collaborative effort that wouldn't be possible without a community of music obsessives focused on a common goal.</p>
           </div>
         </div>
         </Container>
+        <Image src='https://s3-eu-west-1.amazonaws.com/piedpipervinyl/cover5.jpg' fluid style={{height: '350px', margin:'40px 0'}}/>
       </div>
     )
   }

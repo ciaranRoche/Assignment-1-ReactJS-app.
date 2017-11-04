@@ -46,18 +46,18 @@ class SignIn extends Component {
     let content;
     let status = this.state.status;
     if(status == 'signIn'){
-      content = <Button type='submit' onClick={this.handleClick.bind(this)}>SignIn</Button>
+      content = <Button basic type='submit' onClick={this.handleClick.bind(this)}>SignIn</Button>
     }
     if(status == 'check'){
-      content = <Button loading>Loading</Button>
+      content = <Button basic loading>Loading</Button>
     }
     if(status == 'success'){
-      content = <Link to='app' ><Button>Success</Button></Link>
+      content = <Link to='app' ><Button basic color='green'>Success</Button></Link>
     }
     if(status == 'fail'){
       content = <div>
         <p>Looks like something went wrong, please try again</p>
-        <Button type='submit' onClick={this.handleClick.bind(this)}>SignIn</Button>
+        <Button basic color='red' type='submit' onClick={this.handleClick.bind(this)}>SignIn</Button>
       </div>
     }
     return content;

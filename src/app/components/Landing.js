@@ -26,7 +26,7 @@ class Landing extends Component{
   }
 
   render(){
-    return(
+    return(<div>
       <Container textAlign='center'>
         <Header as='h1' icon textAlign='center'>
           <Icon name='pied piper alternate' size='massive' color='green' />
@@ -44,8 +44,10 @@ class Landing extends Component{
         </Button.Group>
         <br/><br/>
         {this.buildContent()}
-
       </Container>
+      <br/>
+      <Image fluid src='https://s3-eu-west-1.amazonaws.com/piedpipervinyl/cover2.jpeg' style={{height: '400px'}}/>
+      </div>
     )
   }
 }

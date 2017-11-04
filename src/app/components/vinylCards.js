@@ -22,7 +22,7 @@ class VinylCards extends Component{
 
   buildButton(id, likes){
     let content;
-    let home = <Button primary onClick={this.handleLike} name={id} value={likes}>
+    let home = <Button basic color='blue' onClick={this.handleLike} name={id} value={likes}>
           <i className="thumbs outline up icon"></i>
           {likes} 
         </Button>
