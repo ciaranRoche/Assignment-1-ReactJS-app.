@@ -110,7 +110,7 @@ The Json server is comprised of two entities, vinyl and users, and example of bo
 
 ## App Component Design.
 
-![image](https://s3-eu-west-1.amazonaws.com/piedpipervinyl/screens/components.png)
+![image](https://s3-eu-west-1.amazonaws.com/piedpipervinyl/screens/state-diagram.png)
 
 ## UI Design.
 #### login page
